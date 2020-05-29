@@ -63,11 +63,16 @@ body {
 .pick-symbol {
     color: white;
     font-family: var(--fontFam);
-    font-size: 6rem;
-    font-weight: 600;
     width: 100%;
-    margin: 60px auto;
+    margin: 50px auto;
     text-align: center;
+}
+
+.symbol-bg {
+    background-color: white;
+    border: solid 10px red;
+    border-radius: 50%;
+    padding: 20px;
 }
 
 /* Text elements / InnerText */
