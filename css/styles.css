@@ -3,6 +3,15 @@
     --fontFam: 'Barlow Semi Condensed', sans-serif;
 }
 
+html {
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat:no-repeat;
+}
+
 body {
     margin: 0%;
     padding: 0%;
@@ -12,13 +21,24 @@ body {
 
 }
 
-.container {
+/* Containers */
+
+.container.main {
     width: 800px;
     margin: 10px auto;
     padding: 50px auto;
     border: solid 2px hsl(217, 16%, 45%);
     border-radius: 10px;
 }
+
+.container.picker {
+    width: 30%;
+    height: 100%;
+    margin: 2% auto;
+    padding: 400px auto;
+}
+
+/* Div / Blocks */
 
 .title {
     display: inline-block;
@@ -39,6 +59,18 @@ body {
     background: white;
     border-radius: 10px;
 }
+
+.pick-symbol {
+    color: white;
+    font-family: var(--fontFam);
+    font-size: 6rem;
+    font-weight: 600;
+    width: 100%;
+    margin: 60px auto;
+    text-align: center;
+}
+
+/* Text elements / InnerText */
 
 .text-title {
     color: white;
