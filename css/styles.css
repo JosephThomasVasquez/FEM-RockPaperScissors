@@ -68,40 +68,68 @@ body {
 }
 
 .paper-ring {
-    width: 45%;
+    width: 120px;
+    height: 125px;
     background: linear-gradient(to bottom, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
     border-radius: 50%;
     margin: auto;
-    padding: 20px;
+    padding: 15px;
     box-shadow: 0px -5px 2px rgba(0,0,0, 0.25) inset;
 }
 
 .scissor-ring {
-    width: 45%;
+    width: 120px;
+    height: 125px;
     background: linear-gradient(to bottom, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
     border-radius: 50%;
     margin: auto;
-    padding: 20px;
+    padding: 15px;
     box-shadow: 0px -5px 2px rgba(0,0,0, 0.25) inset;
     text-align: center;
 }
 
 .rock-ring {
-    width: 22.5%;
+    width: 120px;
+    height: 125px;
     background: linear-gradient(to bottom, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
     border-radius: 50%;
     margin: auto;
-    padding: 20px;
+    padding: 15px;
     box-shadow: 0px -5px 2px rgba(0,0,0, 0.25) inset;
     text-align: center;
 }
 
-.symbol-bg {
+.symbol-paper {
+    width: 90px;
+    height: 90px;
+    display: block;
     background-color: white;
     border-radius: 50%;
+    margin: auto;
     padding: 20px;
     box-shadow: 0px 8px 2px rgba(0,0,0, 0.25) inset;
-    text-align: center;
+}
+
+.symbol-scissors {
+    width: 90px;
+    height: 90px;
+    display: block;
+    background-color: white;
+    border-radius: 50%;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0px 8px 2px rgba(0,0,0, 0.25) inset;
+}
+
+.symbol-rock {
+    width: 90px;
+    height: 90px;
+    display: block;
+    background-color: white;
+    border-radius: 50%;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0px 8px 2px rgba(0,0,0, 0.25) inset;
 }
 
 
