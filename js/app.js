@@ -36,19 +36,6 @@ const createMainContainer = () => {
         h2HTML.classList.add('text-title');
         h2HTML.innerText = `${name}`;
         titleHTML.appendChild(h2HTML);
-
-        // On mouseover - Add styling
-        h2HTML.addEventListener('mouseover', (e) => {
-
-            if (e.target.innerText === 'ROCK') {
-                e.target.innerHTML = '> ROCK';
-                e.target.classList.add('choose-text');
-            }else if (e.target.innerText === '> ROCK') {
-                e.target.innerHTML = 'ROCK';
-                e.target.classList.remove('choose-text');
-            };
-        });
-
     };
 
     createH2Element('h2', 'ROCK');
@@ -63,6 +50,7 @@ createMainContainer();
 const rules = () => {
     const rulesElement = document.createElement('div');
     bodyHTML.appendChild(rulesElement);
+    rulesElement.classList.add('rules-container');
     const rulesBtn = document.createElement('button');
     rulesElement.appendChild(rulesBtn);
     rulesBtn.innerText = 'RULES';

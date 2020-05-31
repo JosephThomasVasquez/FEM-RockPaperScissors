@@ -89,6 +89,10 @@ body {
     box-shadow: 0px -5px 2px rgba(0,0,0, 0.5) inset;
 }
 
+.paper-ring:hover {
+    background: linear-gradient(to bottom, hsl(230, 89%, 72%), hsl(230, 89%, 75%));
+}
+
 .scissor-ring {
     width: 120px;
     height: 125px;
@@ -100,6 +104,10 @@ body {
     text-align: center;
 }
 
+.scissor-ring:hover {
+    background: linear-gradient(to bottom, hsl(39, 89%, 70%), hsl(40, 84%, 75%));
+}
+
 .rock-ring {
     width: 120px;
     height: 125px;
@@ -109,6 +117,10 @@ body {
     padding: 15px;
     box-shadow: 0px -5px 2px rgba(0,0,0, 0.5) inset;
     text-align: center;
+}
+
+.rock-ring:hover {
+    background: linear-gradient(to bottom, hsl(349, 71%, 65%), hsl(349, 70%, 69%));
 }
 
 .symbol-paper {
@@ -180,6 +192,7 @@ body {
 /* Choose Text */
 .choose-text {
     color: hsl(230, 89%, 62%);
+    transition: all 0.25s ease;
 }
 
 .rules-btn {
@@ -192,8 +205,12 @@ body {
     float: right;
     border: solid 2px hsl(217, 16%, 45%);
     border-radius: 10px;
+    transition: all 0.1s ease;
 }
 
+.rules-container {
+    margin: 5%;
+}
 .rules-btn:hover {
     background-color: rgba(255, 255, 255, 1);
 }
