@@ -176,3 +176,8 @@ body {
     margin-bottom: 15px;
     text-align: center;
 }
+
+/* Choose Text */
+.choose-text {
+    color: hsl(230, 89%, 62%);
+}
