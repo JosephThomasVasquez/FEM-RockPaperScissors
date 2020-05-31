@@ -210,6 +210,7 @@ body {
 
 .rules-container {
     margin: 5%;
+    padding-bottom: 1%;
 }
 .rules-btn:hover {
     background-color: rgba(255, 255, 255, 1);

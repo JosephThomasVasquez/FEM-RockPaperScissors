@@ -47,6 +47,53 @@ const createMainContainer = () => {
 
 createMainContainer();
 
+// Main Game Container is the game board area or play section
+const gameContainer = () => {
+
+    const pickerContainer = document.querySelector('.picker-container');
+
+    const symbols = [{
+            name: 'ROCK',
+            image: 'images/icon-rock.svg',
+            ring: 'rock-ring',
+            css: 'symbol-rock',
+            value: 0
+        },
+        {
+            name: 'PAPER',
+            image: 'images/icon-paper.svg',
+            ring: 'paper-ring',
+            css: 'symbol-paper',
+            value: 1
+        },
+        {
+            name: 'SCISSORS',
+            image: 'images/icon-scissors.svg',
+            ring: 'scissor-ring',
+            css: 'symbol-scissors',
+            value: 2
+        },
+    ];
+
+    console.log(symbols[0].name);
+
+    const createSymbol = (symbol) => {
+        const symbolPick = document.createElement('div');
+        const symbolRing = document.createElement('div');
+        symbolPick.classList.add('pick-symbol', 'col-6');
+        symbolRing.classList.add(symbol.ring);
+        pickerContainer.appendChild(symbolPick);
+        symbolPick.appendChild(symbolRing);
+
+
+    };
+
+    createSymbol(symbols[0]);
+
+};
+
+gameContainer();
+
 const rules = () => {
     const rulesElement = document.createElement('div');
     bodyHTML.appendChild(rulesElement);
