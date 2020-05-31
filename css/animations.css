@@ -1,0 +1,4 @@
+@keyframes floating {
+    from {margin: 50px auto;}
+    to {margin: 60px auto;}
+}

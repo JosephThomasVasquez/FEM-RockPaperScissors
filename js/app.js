@@ -1,5 +1,6 @@
-const score = document.querySelector(".score-value");
 const bodyHTML = document.querySelector("body");
+const score = document.querySelector(".score-value");
+const pickerContainer = document.querySelector('.picker-container');
 
 console.log(score.innerHTML);
 
@@ -50,8 +51,6 @@ createMainContainer();
 // Main Game Container is the game board area or play section
 const gameContainer = () => {
 
-    const pickerContainer = document.querySelector('.picker-container');
-
     const symbols = [{
             name: 'ROCK',
             image: 'images/icon-rock.svg',
@@ -75,20 +74,23 @@ const gameContainer = () => {
         },
     ];
 
-    console.log(symbols[0].name);
-
     const createSymbol = (symbol) => {
         const symbolPick = document.createElement('div');
         const symbolRing = document.createElement('div');
+        const symbolImg = document.createElement('img');
         symbolPick.classList.add('pick-symbol', 'col-6');
         symbolRing.classList.add(symbol.ring);
+        symbolImg.classList.add(symbol.css);
+        symbolImg.src = symbol.image;
         pickerContainer.appendChild(symbolPick);
         symbolPick.appendChild(symbolRing);
-
+        symbolRing.appendChild(symbolImg);
 
     };
 
     createSymbol(symbols[0]);
+    createSymbol(symbols[2]);
+    createSymbol(symbols[1]);
 
 };
 
@@ -102,6 +104,18 @@ const rules = () => {
     rulesElement.appendChild(rulesBtn);
     rulesBtn.innerText = 'RULES';
     rulesBtn.classList.add('rules-btn');
+
+    const modal = () => {
+        const modalContainer = document.createElement('div');
+        modalContainer.classList.add('modal');
+        modalContainer.innerHTML = '<div class="modal-content"><span class="close-btn">X</span><img src="../images/image-rules.svg" class="modal-content"></div>';
+        bodyHTML.appendChild(modalContainer);
+        rulesBtn.addEventListener('click', () => {
+        modalContainer.classList.toggle('show-modal');
+        });
+        
+    };
+    modal();
 }
 
 rules();
