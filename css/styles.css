@@ -181,3 +181,19 @@ body {
 .choose-text {
     color: hsl(230, 89%, 62%);
 }
+
+.rules-btn {
+    background-color: rgba(0, 0, 0, 0);
+    color: hsl(217, 16%, 45%);
+    font-weight: 700;
+    width: 10%;
+    height: 40px;
+    margin: 0 auto;
+    float: right;
+    border: solid 2px hsl(217, 16%, 45%);
+    border-radius: 10px;
+}
+
+.rules-btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+}

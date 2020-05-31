@@ -14,6 +14,8 @@ const createMainContainer = () => {
     titleHTML.classList.add('title');
     mainContainer.appendChild(titleHTML);
 
+
+    // Score container div
     const scoreHTML = document.createElement('div');
     scoreHTML.classList.add('score');
     mainContainer.appendChild(scoreHTML);
@@ -57,6 +59,17 @@ const createMainContainer = () => {
 };
 
 createMainContainer();
+
+const rules = () => {
+    const rulesElement = document.createElement('div');
+    bodyHTML.appendChild(rulesElement);
+    const rulesBtn = document.createElement('button');
+    rulesElement.appendChild(rulesBtn);
+    rulesBtn.innerText = 'RULES';
+    rulesBtn.classList.add('rules-btn');
+}
+
+rules();
 
 
 
