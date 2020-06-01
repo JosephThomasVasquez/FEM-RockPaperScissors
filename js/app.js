@@ -4,14 +4,11 @@ const pickerContainer = document.querySelector('.picker-container');
 
 // Create the main div container with the title and score
 const createMainContainer = () => {
-    
-    
+
     const scoreAmount = document.createElement('h2');
     scoreAmount.classList.add('score-value');
     scoreAmount.innerText = '12';
     scoreHTML.appendChild(scoreAmount);
-
-
 };
 
 createMainContainer();
@@ -24,49 +21,69 @@ const gameContainer = () => {
             image: 'images/icon-rock.svg',
             ring: 'rock-ring',
             css: 'symbol-rock',
-            value: 0
+            value: 2
         },
         {
             name: 'PAPER',
             image: 'images/icon-paper.svg',
             ring: 'paper-ring',
             css: 'symbol-paper',
-            value: 1
+            value: 0
         },
         {
             name: 'SCISSORS',
             image: 'images/icon-scissors.svg',
             ring: 'scissor-ring',
             css: 'symbol-scissors',
-            value: 2
+            value: 1
         },
     ];
 
-    const createSymbol = (symbol) => {
+    // Initialize the game
+    const initGame = () => {
+        const createSymbol = (symbol) => {
 
-        const symbolPick = document.createElement('div');
-        const symbolRing = document.createElement('div');
-        const symbolImg = document.createElement('img');
-        
-        if (symbol.value === 1) {
-            symbolPick.classList.add('pick-symbol', 'col-12');
-        }else {
-            symbolPick.classList.add('pick-symbol', 'col-6');
-        }
-        
-        symbolRing.classList.add(symbol.ring);
-        symbolImg.classList.add(symbol.css);
-        symbolImg.src = symbol.image;
-        pickerContainer.appendChild(symbolPick);
-        symbolPick.appendChild(symbolRing);
-        symbolRing.appendChild(symbolImg);
+            const symbolPick = document.createElement('div');
+            const symbolRing = document.createElement('div');
+            const symbolImg = document.createElement('img');
+            
+            if (symbol.value === 2) {
+                symbolPick.classList.add('pick-symbol', 'col-12');
+            }else {
+                symbolPick.classList.add('pick-symbol', 'col-6');
+            }
+            
+            symbolRing.classList.add(symbol.ring);
+            symbolImg.classList.add(symbol.css);
+            symbolImg.src = symbol.image;
+            pickerContainer.appendChild(symbolPick);
+            symbolPick.appendChild(symbolRing);
+            symbolRing.appendChild(symbolImg);
 
-    };
+            symbolImg.addEventListener('click', e => {
 
-    createSymbol(symbols[0]);
-    createSymbol(symbols[2]);
-    createSymbol(symbols[1]);
+                const removeSymbol = e.target.parentNode.parentNode.parentNode.className;
+                const removePicked = e.target.parentNode.parentNode;
 
+                if (removeSymbol.includes('picker-container')) {
+                    console.log(removePicked);
+                    removePicked.remove();
+                }
+
+                //symbolPick.innerHTML = '';
+                // //if (e.target ===)
+                // const removePicked = e.target.parentNode;
+                // removePicked.parentNode.removeChild(removePicked);
+                // symbolPick.parentNode.removeChild(removePicked);
+            });
+        };
+    
+        createSymbol(symbols[1]);
+        createSymbol(symbols[2]);
+        createSymbol(symbols[0]);
+    } ;
+
+    initGame();
 };
 
 gameContainer();
