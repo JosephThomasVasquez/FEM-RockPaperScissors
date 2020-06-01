@@ -1,4 +1,4 @@
 @keyframes floating {
-    from {margin: 50px auto;}
-    to {margin: 60px auto;}
+    from {transform: scale(1.2);}
+    to {transform: scale(1);}
 }

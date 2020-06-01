@@ -35,7 +35,7 @@ body {
 }
 
 .container.picker {
-    width: 30%;
+    width: 800px;
     height: 100%;
     margin: 10% auto;
     padding: 400px auto;
@@ -64,11 +64,13 @@ body {
 }
 
 .pick-symbol {
-    display: flex;
+    display: block;
+    float: left;
     position: relative;
     top: -400px;
     width: 100%;
-    margin: 50px auto;
+    margin: 80px auto;
+    transform: scale(1.25);
 }
 
 .bg-image {
@@ -93,6 +95,13 @@ body {
 
 .paper-ring:hover {
     background: linear-gradient(to bottom, hsl(230, 89%, 72%), hsl(230, 89%, 75%));
+    transform: scale(1.05);
+    animation-name: floating;
+    animation-play-state: running;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-duration: 0.5s;
+    transition: all 0.5s ease-out;
 }
 
 .scissor-ring {
@@ -108,6 +117,13 @@ body {
 
 .scissor-ring:hover {
     background: linear-gradient(to bottom, hsl(39, 89%, 70%), hsl(40, 84%, 75%));
+    transform: scale(1.05);
+    animation-name: floating;
+    animation-play-state: running;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-duration: 0.5s;
+    transition: all 0.5s ease-out;
 }
 
 .rock-ring {
@@ -123,6 +139,13 @@ body {
 
 .rock-ring:hover {
     background: linear-gradient(to bottom, hsl(349, 71%, 65%), hsl(349, 70%, 69%));
+    transform: scale(1.05);
+    animation-name: floating;
+    animation-play-state: running;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-duration: 0.5s;
+    transition: all 0.5s ease-out;
 }
 
 .symbol-paper {
@@ -198,24 +221,36 @@ body {
 }
 
 .rules-btn {
+    display: block;
+    position: relative;
+    top: 200px;
+    right: 100px;
     background-color: rgba(0, 0, 0, 0);
     color: hsl(217, 16%, 45%);
+    outline: none;
     font-weight: 700;
-    width: 10%;
+    width: 150px;
     height: 40px;
     margin: 0 auto;
-    float: right;
     border: solid 2px hsl(217, 16%, 45%);
     border-radius: 10px;
     transition: all 0.1s ease;
 }
 
 .rules-container {
-    margin: 5%;
-    padding-bottom: 1%;
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 20px;
 }
 .rules-btn:hover {
+    outline: none;
     background-color: rgba(255, 255, 255, 1);
+    animation-name: floating;
+    animation-play-state: running;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-duration: 0.5s;
+    transition: all 0.5s ease-out;
 }
 
 .modal {
@@ -247,4 +282,11 @@ body {
     visibility: visible;
     transform: scale(1);
     transition: visibility 0s linear 0.25s, opacity 0s;
+}
+
+.attribution {
+    display: inline-block;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
 }
