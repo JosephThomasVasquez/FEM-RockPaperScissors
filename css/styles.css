@@ -96,7 +96,7 @@ body {
 }
 
 .paper-ring:hover {
-    background: linear-gradient(to bottom, hsl(230, 89%, 62%), hsl(230, 89%, 75%));
+    background: linear-gradient(to bottom, hsl(230, 100%, 62%), hsl(230, 89%, 75%));
     opacity: 1;
     transform: scale(1.05);
     animation-name: floating;
@@ -104,13 +104,13 @@ body {
     animation-direction: alternate;
     animation-iteration-count: infinite;
     animation-duration: 0.5s;
-    transition: all 0.5s ease-out;
+    transition: all 0.25s ease-out;
 }
 
 .scissor-ring {
     width: 120px;
     height: 125px;
-    background: linear-gradient(to bottom, hsl(39, 89%, 37%), hsl(40, 84%, 53%));
+    background: linear-gradient(to bottom, hsl(39, 100%, 37%), hsl(40, 84%, 53%));
     border-radius: 50%;
     margin: auto;
     padding: 15px;
@@ -128,7 +128,7 @@ body {
     animation-direction: alternate;
     animation-iteration-count: infinite;
     animation-duration: 0.5s;
-    transition: all 0.5s ease-out;
+    transition: all 0.25s ease-out;
 }
 
 .rock-ring {
@@ -144,7 +144,7 @@ body {
 }
 
 .rock-ring:hover {
-    background: linear-gradient(to bottom, hsl(349, 71%, 53%), hsl(349, 70%, 69%));
+    background: linear-gradient(to bottom, hsl(349, 80%, 53%), hsl(349, 70%, 69%));
     opacity: 1;
     transform: scale(1.05);
     animation-name: floating;
@@ -152,7 +152,7 @@ body {
     animation-direction: alternate;
     animation-iteration-count: infinite;
     animation-duration: 0.5s;
-    transition: all 0.5s ease-out;
+    transition: all 0.25s ease-out;
 }
 
 .symbol-paper {

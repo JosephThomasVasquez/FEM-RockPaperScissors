@@ -2,6 +2,11 @@ const bodyHTML = document.querySelector('body');
 const scoreHTML = document.querySelector('.text-score');
 const pickerContainer = document.querySelector('.picker-container');
 
+const rockSound = new Audio('sounds/rock.mp3');
+const paperSound = new Audio('sounds/paper.mp3');
+const scissorsSound = new Audio('sounds/scissors.mp3');
+
+
 // Create the main div container with the title and score
 const createMainContainer = () => {
 
@@ -46,6 +51,19 @@ const gameContainer = () => {
             const symbolPick = document.createElement('div');
             const symbolRing = document.createElement('div');
             const symbolImg = document.createElement('img');
+
+            symbolPick.addEventListener('mouseover', e => {
+
+                const isSymbol = e.target.className
+
+                if (isSymbol === 'rock-ring') {
+                    rockSound.play();
+                }else if (isSymbol === 'paper-ring') {
+                    paperSound.play();
+                }else if (isSymbol === 'scissor-ring') {
+                    scissorsSound.play();
+                };
+            });
             
             if (symbol.value === 2) {
                 symbolPick.classList.add('pick-symbol', 'col-12');
