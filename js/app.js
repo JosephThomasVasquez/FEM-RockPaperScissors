@@ -52,6 +52,7 @@ const gameContainer = () => {
             const symbolRing = document.createElement('div');
             const symbolImg = document.createElement('img');
 
+            // Hover sound effect
             symbolPick.addEventListener('mouseover', e => {
 
                 const isSymbol = e.target.className
@@ -86,13 +87,7 @@ const gameContainer = () => {
                 if (removeSymbol.includes('picker-container')) {
                     console.log(removePicked);
                     removePicked.remove();
-                }
-
-                //symbolPick.innerHTML = '';
-                // //if (e.target ===)
-                // const removePicked = e.target.parentNode;
-                // removePicked.parentNode.removeChild(removePicked);
-                // symbolPick.parentNode.removeChild(removePicked);
+                };
             });
         };
     
