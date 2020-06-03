@@ -51,9 +51,8 @@ const gameContainer = () => {
 
         const createSymbol = (symbol) => {
             
-            symbolSet.push(symbol.ring);
-                    console.log(symbolSet);
-
+            symbolSet.push(symbol);
+            
             const symbolPick = document.createElement('div');
             const symbolRing = document.createElement('div');
             const symbolImg = document.createElement('img');
@@ -91,7 +90,7 @@ const gameContainer = () => {
                 const removePicked = e.target.parentNode.parentNode;
 
                 if (removeSymbol.includes('picker-container')) {
-                    symbolSet.indexOf(symbol.ring);
+                    console.log(symbolSet.indexOf(symbol));
                     //console.log(removeImg);
                     //console.log(removePicked);
                     //console.log(removeSymbol);
