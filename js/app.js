@@ -8,7 +8,7 @@ const scissorsSound = new Audio('sounds/scissors.mp3');
 
 
 // Create the main div container with the title and score
-const createMainContainer = () => {
+const createTitleContainer = () => {
 
     const scoreAmount = document.createElement('h2');
     scoreAmount.classList.add('score-value');
@@ -16,7 +16,7 @@ const createMainContainer = () => {
     scoreHTML.appendChild(scoreAmount);
 };
 
-createMainContainer();
+createTitleContainer();
 
 // Main Game Container is the game board area or play section
 const gameContainer = () => {
@@ -71,10 +71,12 @@ const gameContainer = () => {
                 };
             });
             
-            if (symbol.value === 2) {
-                symbolPick.classList.add('pick-symbol', 'col-12');
-            }else {
-                symbolPick.classList.add('pick-symbol', 'col-6');
+            if (symbol.value === 0) {
+                symbolPick.classList.add('pick-paper', 'col-6');
+            }else if (symbol.value === 1) {
+                symbolPick.classList.add('pick-rock', 'col-6');
+            }else if (symbol.value === 2) {
+                symbolPick.classList.add('pick-scissors', 'col-12');
             }
             
             symbolRing.classList.add(symbol.ring);
@@ -92,6 +94,7 @@ const gameContainer = () => {
                 if (removeSymbol.includes('picker-container') && removePicked.includes('rock-ring')) {
                     console.log(symbolSet.indexOf(symbol));
                     console.log(removePicked);
+                    symbolPick.remove();
 
                     //removePicked.remove();
                     

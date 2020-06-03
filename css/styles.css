@@ -63,7 +63,7 @@ body {
     border-radius: 10px;
 }
 
-.pick-symbol {
+.pick-rock, .pick-paper, .pick-scissors {
     display: block;
     float: left;
     position: relative;
