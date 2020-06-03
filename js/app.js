@@ -87,16 +87,16 @@ const gameContainer = () => {
             symbolImg.addEventListener('click', e => {
 
                 const removeSymbol = e.target.parentNode.parentNode.parentNode.className;
-                const removePicked = e.target.parentNode.parentNode;
+                const removePicked = e.target.parentNode.className;
 
-                if (removeSymbol.includes('picker-container')) {
+                if (removeSymbol.includes('picker-container') && removePicked.includes('rock-ring')) {
                     console.log(symbolSet.indexOf(symbol));
-                    //console.log(removeImg);
-                    //console.log(removePicked);
-                    //console.log(removeSymbol);
+                    console.log(removePicked);
+
+                    //removePicked.remove();
                     
                 }else {
-                    removePicked.remove();
+                    //removePicked.remove();
                 };
             });
         };
