@@ -46,7 +46,13 @@ const gameContainer = () => {
 
     // Initialize the game
     const initGame = () => {
+
+        const symbolSet = [];
+
         const createSymbol = (symbol) => {
+            
+            symbolSet.push(symbol.ring);
+                    console.log(symbolSet);
 
             const symbolPick = document.createElement('div');
             const symbolRing = document.createElement('div');
@@ -85,7 +91,12 @@ const gameContainer = () => {
                 const removePicked = e.target.parentNode.parentNode;
 
                 if (removeSymbol.includes('picker-container')) {
-                    console.log(removePicked);
+                    symbolSet.indexOf(symbol.ring);
+                    //console.log(removeImg);
+                    //console.log(removePicked);
+                    //console.log(removeSymbol);
+                    
+                }else {
                     removePicked.remove();
                 };
             });
@@ -124,11 +135,6 @@ const rules = () => {
 }
 
 rules();
-
-
-
-
-
 
 // localStorage Solution
 
