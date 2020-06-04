@@ -1,6 +1,8 @@
 const bodyHTML = document.querySelector('body');
 const scoreHTML = document.querySelector('.text-score');
 const pickerContainer = document.querySelector('.picker-container');
+const modalContainer = document.querySelector('.modalx');
+const modalContent = document.querySelector('.modal-content');
 
 const rockSound = new Audio('sounds/rock.mp3');
 const paperSound = new Audio('sounds/paper.mp3');
@@ -135,10 +137,6 @@ const rules = () => {
     rulesBtn.classList.add('rules-btn');
 
     const modal = () => {
-        const modalContainer = document.createElement('div');
-        //modalContainer.classList.add('modal');
-        modalContainer.innerHTML = '<div class="modal-content"><h2 class="rules-h2">RULES</h2><div class="close-btn">X</div><img src="../images/image-rules.svg" class="rules-img"></div>';
-        bodyHTML.appendChild(modalContainer);
         rulesBtn.addEventListener('click', () => {
         modalContainer.classList.toggle('show-modal');
         });

@@ -263,15 +263,18 @@ body {
     transition: all 0.25s ease-out;
 }
 
-.modal {
+.modalx {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 1);
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0,0,0, 0.5);
     opacity: 0;
-    transition: all 0s linear 0.25s;
+    visibility: hidden;
+    transition: all 0.25s linear 0.25s;
 }
 
 .modal-content {
@@ -281,23 +284,35 @@ body {
     transform: translate(-50%, -50%);
     background-color: rgba(255, 1);
     padding: 10px, 15px;
-    width: 25%;
+    width: 400px;
+    height: 450px;
     border-radius: 10px;
     opacity: 1;
+}
+
+.rules-title {
+    display: inline-block;
+    margin-left: 10px;
+    width: 40px;
+}
+
+.close-btn {
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: right;
+    background-color: rgba(0,0,0, 0.25);
+    margin-right: 10px;
+    width: 25%;
 }
 
 .rules-img {
     margin: auto;
 }
 
-.close-btn {
-    font-size: 2rem;
-}
-
 .show-modal {
     opacity: 1;
     visibility: visible;
-    transition: visibility 0s linear 0.25s, opacity 0s;
 }
 
 .attribution {
