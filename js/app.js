@@ -136,8 +136,8 @@ const rules = () => {
 
     const modal = () => {
         const modalContainer = document.createElement('div');
-        modalContainer.classList.add('modal');
-        modalContainer.innerHTML = '<div class="modal-content"><span class="close-btn">X</span><img src="../images/image-rules.svg" class="modal-content"></div>';
+        //modalContainer.classList.add('modal');
+        modalContainer.innerHTML = '<div class="modal-content"><h2 class="rules-h2">RULES</h2><div class="close-btn">X</div><img src="../images/image-rules.svg" class="rules-img"></div>';
         bodyHTML.appendChild(modalContainer);
         rulesBtn.addEventListener('click', () => {
         modalContainer.classList.toggle('show-modal');
