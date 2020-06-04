@@ -44,6 +44,8 @@ const gameContainer = () => {
         },
     ];
 
+    let gameStart = true;
+
     // Initialize the game
     const initGame = () => {
 
@@ -71,13 +73,16 @@ const gameContainer = () => {
                 };
             });
             
-            if (symbol.value === 0) {
-                symbolPick.classList.add('pick-paper', 'col-6');
-            }else if (symbol.value === 1) {
-                symbolPick.classList.add('pick-rock', 'col-6');
-            }else if (symbol.value === 2) {
-                symbolPick.classList.add('pick-scissors', 'col-12');
-            }
+            if (gameStart) {
+                if (symbol.value === 0) {
+                    symbolPick.classList.add('pick-paper', 'col-6');
+                }else if (symbol.value === 1) {
+                    symbolPick.classList.add('pick-rock', 'col-6');
+                }else if (symbol.value === 2) {
+                    symbolPick.classList.add('pick-scissors', 'col-12');
+                };
+            };
+            
             
             symbolRing.classList.add(symbol.ring);
             symbolImg.classList.add(symbol.css);
@@ -95,11 +100,17 @@ const gameContainer = () => {
                     console.log(symbolSet.indexOf(symbol));
                     console.log(removePicked);
                     symbolPick.remove();
-
-                    //removePicked.remove();
                     
-                }else {
-                    //removePicked.remove();
+                }else if (removeSymbol.includes('picker-container') && removePicked.includes('paper-ring')) {
+                    console.log(symbolSet.indexOf(symbol));
+                    console.log(removePicked);
+                    symbolPick.remove();
+
+                }else if (removeSymbol.includes('picker-container') && removePicked.includes('scissor-ring')) {
+                    console.log(symbolSet.indexOf(symbol));
+                    console.log(removePicked);
+                    symbolPick.remove();
+
                 };
             });
         };
