@@ -47,6 +47,7 @@ const gameContainer = () => {
         },
     ];
 
+
     let gameStart = true;
 
     // Initialize the game
@@ -55,8 +56,6 @@ const gameContainer = () => {
         const symbolSet = [];
 
         const createSymbol = (symbol) => {
-            
-            symbolSet.push(symbol);
             
             const symbolPick = document.createElement('div');
             const symbolRing = document.createElement('div');
@@ -85,7 +84,6 @@ const gameContainer = () => {
                     symbolPick.classList.add('pick-scissors', 'col-12');
                 };
             };
-            
             
             symbolRing.classList.add(symbol.ring);
             symbolImg.classList.add(symbol.css);
