@@ -47,13 +47,32 @@ const gameContainer = () => {
         },
     ];
 
+    const symbolSet = [];
+
+    // Create symbol
+    // Idea is to call function with a single name and assemble the html elements and add to an array from the input of the function
+    // Can either create DOM Elements and append or use innerHTML to create the elements on the page.
+    // This is using the innerHTML approach
+    const createSymbolBtn = name => {
+        
+        const createHTML = `<div class="pick-${name} col-6"><div class="${name}-ring"><img class="symbol-${name}" src="images/icon-${name}.svg"></div></div>`;
+        symbolSet.push(createHTML);
+
+    };
+
+    createSymbolBtn('paper');
+
+    console.log(symbolSet);
+
+    // Update the innetHTML of the picker Container
+    //pickerContainer.innerHTML = symbolSet[0];
 
     let gameStart = true;
 
     // Initialize the game
     const initGame = () => {
 
-        const symbolSet = [];
+        
 
         const createSymbol = (symbol) => {
             
@@ -150,6 +169,21 @@ const rules = () => {
 }
 
 rules();
+
+// Reset score button
+const resetScoreButton = document.createElement('button');
+resetScoreButton.classList.add('reset-score');
+
+bodyHTML.append(resetScoreButton);
+
+resetScoreButton.addEventListener('click', () => {
+    // Get localStorage score
+    localStorage.getItem('rpsScore');
+
+    // Set localStorage score
+    localStorage.setItem('rpsScore', `0`);
+});
+
 
 // localStorage Solution
 
