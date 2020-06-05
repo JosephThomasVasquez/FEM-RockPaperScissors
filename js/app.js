@@ -3,6 +3,7 @@ const scoreHTML = document.querySelector('.text-score');
 const pickerContainer = document.querySelector('.picker-container');
 const modalContainer = document.querySelector('.modalx');
 const modalContent = document.querySelector('.modal-content');
+const closeModal = document.querySelector('.close-btn');
 
 const rockSound = new Audio('sounds/rock.mp3');
 const paperSound = new Audio('sounds/paper.mp3');
@@ -142,6 +143,11 @@ const rules = () => {
         });
         
     };
+
+    closeModal.addEventListener('click', () => {
+        modalContainer.classList.remove('show-modal');
+    });
+
     modal();
 }
 

@@ -232,8 +232,8 @@ body {
 
 .rules-btn {
     display: block;
-    position: relative;
-    top: 200px;
+    position: absolute;
+    bottom: 200px;
     right: 100px;
     background-color: rgba(0, 0, 0, 0);
     color: hsl(217, 16%, 45%);
@@ -241,7 +241,7 @@ body {
     font-weight: 700;
     width: 150px;
     height: 40px;
-    margin: 0 auto;
+    margin: 0;
     border: solid 2px hsl(217, 16%, 45%);
     border-radius: 10px;
     transition: all 0.1s ease;
@@ -249,7 +249,7 @@ body {
 
 .rules-container {
     width: 100%;
-    margin: 0 auto;
+    margin: 0;
     padding-bottom: 20px;
 }
 .rules-btn:hover {
