@@ -239,6 +239,7 @@ body {
     background-color: rgba(0, 0, 0, 0);
     color: hsl(217, 16%, 45%);
     outline: none;
+    font-family: var(--fontFam);
     font-weight: 700;
     width: 150px;
     height: 40px;
@@ -276,6 +277,7 @@ body {
 
 .modal-content {
     position: absolute;
+    font-family: var(--fontFam);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -289,6 +291,7 @@ body {
 
 .rules-title {
     display: inline-block;
+    font-family: var(--fontFam);
     margin-left: 10px;
     width: 40px;
 }
@@ -312,15 +315,32 @@ body {
     visibility: visible;
 }
 
-.reset-score {
+
+.reset-container {
     position: relative;
-    top: 60px;
-    right: 750px;
+    width: 100%;
+}
+
+.fas {
+    position: relative;
     background-color: rgba(0, 0, 0, 0);
     color: hsl(217, 16%, 45%);
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    text-align: center;
+}
+
+.reset-score {
+    display: block;
+    position: relative;
+    top: 120px;
+    right: 120px;
+    width: 150px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0);
+    color: hsl(217, 16%, 45%);
+    font-family: var(--fontFam);
+    border-radius: 10px;
+    border: solid 2px hsl(217, 16%, 45%);
 }
 
 .reset-score:hover {

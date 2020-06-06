@@ -171,9 +171,13 @@ const rules = () => {
 rules();
 
 // Reset score button
+const resetContainer = document.createElement('div');
 const resetScoreButton = document.createElement('button');
+bodyHTML.appendChild(resetContainer);
+resetContainer.appendChild(resetScoreButton);
+resetContainer.classList.add('reset-container');
 resetScoreButton.classList.add('reset-score');
-resetScoreButton.innerHTML = '<i class="fas fa-sync-alt"></i>';
+resetScoreButton.innerHTML = '<i class="fas fa-sync-alt"></i><div class="reset-text">Reset Score</div>';
 
 bodyHTML.append(resetScoreButton);
 
