@@ -173,6 +173,7 @@ rules();
 // Reset score button
 const resetScoreButton = document.createElement('button');
 resetScoreButton.classList.add('reset-score');
+resetScoreButton.innerHTML = '<i class="fas fa-sync-alt"></i>';
 
 bodyHTML.append(resetScoreButton);
 

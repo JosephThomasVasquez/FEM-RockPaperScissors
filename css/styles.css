@@ -315,11 +315,23 @@ body {
 .reset-score {
     position: relative;
     top: 60px;
-    right: 160px;
-    background-color: white;
+    right: 750px;
+    background-color: rgba(0, 0, 0, 0);
+    color: hsl(217, 16%, 45%);
     border-radius: 50%;
     width: 40px;
     height: 40px;
+}
+
+.reset-score:hover {
+    outline: none;
+    background-color: rgba(255, 255, 255, 1);
+    animation-name: floating;
+    animation-play-state: running;
+    animation-direction: normal;
+    animation-iteration-count: 1;
+    animation-duration: 0.5s;
+    transition: all 0.25s ease-out;
 }
 
 .attribution {
