@@ -188,7 +188,7 @@ body {
     height: 90px;
     display: block;
     background-color: white;
-    border: solid 2px rgba(0,0,0, 0.3);
+    border: solid 2px rgba(135, 153, 248, 0.75);
     border-radius: 50%;
     margin: auto;
     padding: 20px;
@@ -200,7 +200,7 @@ body {
     height: 90px;
     display: block;
     background-color: white;
-    border: solid 2px rgba(0,0,0, 0.3);
+    border: solid 2px rgba(236, 169, 34, 0.75);
     border-radius: 50%;
     margin: auto;
     padding: 20px;
@@ -212,7 +212,7 @@ body {
     height: 90px;
     display: block;
     background-color: white;
-    border: solid 2px rgba(0,0,0, 0.3);
+    border: solid 2px rgba(221, 64, 93, 0.75);
     border-radius: 50%;
     margin: auto;
     padding: 20px;
