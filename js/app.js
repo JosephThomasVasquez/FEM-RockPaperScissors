@@ -5,11 +5,6 @@ const modalContainer = document.querySelector('.modalx');
 const modalContent = document.querySelector('.modal-content');
 const closeModal = document.querySelector('.close-btn');
 
-// const rockSound = new Audio('sounds/rock.mp3');
-// const paperSound = new Audio('sounds/paper.mp3');
-// const scissorsSound = new Audio('sounds/scissors.mp3');
-
-
 // Create the main div container with the title and score
 const createTitleContainer = () => {
 
@@ -22,7 +17,6 @@ const createTitleContainer = () => {
 createTitleContainer();
 
 // Main Game Container is the game board area or play section
-const gameContainer = () => {
 
     const symbols = [{
          
@@ -49,50 +43,15 @@ const gameContainer = () => {
         },
     ];
 
-    
-
     const symbolSet = [];
 
-    // Create symbol
-    // Idea is to call function with a single name and assemble the html elements and add to an array from the input of the function
-    // Can either create DOM Elements and append or use innerHTML to create the elements on the page.
-    // This is using the innerHTML approach
-    const createSymbolBtn = name => {
-
-        const symbolPick = document.createElement('div');
-        symbolPick.classList.add(`pick-${name}`);
-        console.log(symbolPick);
-
-        const symbolRing = document.createElement('div');
-        const symbolImg = document.createElement('img');
-        
-        const createHTML = `<div class="pick-${name} col-6"><div class="${name}-ring"><img class="symbol-${name}" src="images/icon-${name}.svg"></div></div>`;
-        symbolSet.push(createHTML);
-        
-        pickerContainer.innerHTML = symbolSet[0] + symbolSet[1] + symbolSet[2];
-
-    };
-
-    // createSymbolBtn('paper');
-    // createSymbolBtn('scissors');
-    // createSymbolBtn('rock');
-
-    console.log(symbolSet);
-
-    // Update the innetHTML of the picker Container
-    //pickerContainer.innerHTML = symbolSet[0];
-
     let gameStart = true;
+    let playerSelect = false;
 
-    // Initialize the game
-    const initGame = () => {
-
-        
-
-        
-    } ;
-
+    // Create symbols
     const createSymbol = (symbol) => {
+
+        const symbolName = symbol.name.toLowerCase();
             
         const symbolPick = document.createElement('div');
         const symbolRing = document.createElement('div');
@@ -101,22 +60,21 @@ const gameContainer = () => {
         // Hover sound effect
         symbolRing.addEventListener('mouseover', e => {
 
-            const symbolName = symbol.name.toLowerCase();
+            
             const mouseOverSound = new Audio(`sounds/${symbolName}.mp3`);
             mouseOverSound.loop = false;
             mouseOverSound.play();
             
         });
         
-        if (gameStart) {
-            if (symbol.value === 0) {
-                symbolPick.classList.add('pick-paper', 'col-6');
-            }else if (symbol.value === 1) {
-                symbolPick.classList.add('pick-rock', 'col-6');
-            }else if (symbol.value === 2) {
-                symbolPick.classList.add('pick-scissors', 'col-12');
+            if (symbolName === 'rock') {
+                symbolPick.classList.add(`pick-${symbolName}`);
+                symbolPick.classList.add('col-12');
+            }else {
+                symbolPick.classList.add(`pick-${symbolName}`);
+                symbolPick.classList.add('col-6');
             };
-        };
+            
         
         symbolRing.classList.add(symbol.ring);
         symbolImg.classList.add(symbol.css);
@@ -125,49 +83,38 @@ const gameContainer = () => {
         symbolPick.appendChild(symbolRing);
         symbolRing.appendChild(symbolImg);
 
-        symbolImg.addEventListener('click', e => {
-
-            const removeSymbol = e.target.parentNode.parentNode.parentNode.className;
-            const removePicked = e.target.parentNode.className;
-            pickerContainer.innerHTML = '';
-
-            if (removeSymbol.includes('picker-container') && removePicked.includes('rock-ring')) {
-                console.log(symbolSet.indexOf(symbol));
-                console.log(removePicked);
-                //symbolPick.remove();
-                createSymbol(symbols[0]);
-                //symbolPick.style.transform = 'scale(2.0)';
-                
-                
-            }else if (removeSymbol.includes('picker-container') && removePicked.includes('paper-ring')) {
-                console.log(symbolSet.indexOf(symbol));
-                console.log(removePicked);
-                symbolPick.remove();
-
-            }else if (removeSymbol.includes('picker-container') && removePicked.includes('scissors-ring')) {
-                console.log(symbolSet.indexOf(symbol));
-                console.log(removePicked);
-                symbolPick.remove();
-
-            };
-        });
+        // Player selected Symbol
+        if (playerSelect) {
+            
+        }else if (!playerSelect){
+            
+            symbolImg.addEventListener('click', e => {
+                playerSelect = true;
+                symbolSet.push(symbol);
+                pickerContainer.innerHTML = '';
+                createSymbol(symbol);
+                symbolPick.classList.add(`pick-${symbolName}`);
+                console.log(symbolSet);
+    
+            });
+        }
+        
     };
 
-    // createSymbol(symbols[1]);
-    // createSymbol(symbols[2]);
-    // createSymbol(symbols[0]);
-
-    symbols.forEach(name => {
+    // Initialize the game
+    const initGame = () => {
         
-        createSymbol(name);
-        console.log(name);
+        playerSelect = false;
 
-    });
+        rules();
+        score();
 
-    initGame();
-};
+        // Creates symbols based on symbols[] Array
+        symbols.forEach(name => {
+            createSymbol(name);
+        });
 
-gameContainer();
+    };
 
 const rules = () => {
     const rulesElement = document.createElement('div');
@@ -190,37 +137,32 @@ const rules = () => {
     });
 
     modal();
-}
+};
 
-rules();
+// Score Functionality
+const score = () => {
 
-// Reset score button
-const resetContainer = document.createElement('div');
-const resetScoreButton = document.createElement('button');
-bodyHTML.appendChild(resetContainer);
-resetContainer.appendChild(resetScoreButton);
-resetContainer.classList.add('reset-container');
-resetScoreButton.classList.add('reset-score');
-resetScoreButton.innerHTML = '<i class="fas fa-sync-alt"></i><div class="reset-text">Reset Score</div>';
+    const resetContainer = document.createElement('div');
+    const resetScoreButton = document.createElement('button');
+    bodyHTML.appendChild(resetContainer);
+    resetContainer.appendChild(resetScoreButton);
+    resetContainer.classList.add('reset-container');
+    resetScoreButton.classList.add('reset-score');
+    resetScoreButton.innerHTML = '<i class="fas fa-sync-alt"></i><div class="reset-text">Reset Score</div>';
 
-bodyHTML.append(resetScoreButton);
+    bodyHTML.append(resetScoreButton);
 
-resetScoreButton.addEventListener('click', () => {
-    // Get localStorage score
-    localStorage.getItem('rpsScore');
+    // Reset Score Button
+    resetScoreButton.addEventListener('click', () => {
+        // Get localStorage score
+        localStorage.getItem('rpsScore');
 
-    // Set localStorage score
-    localStorage.setItem('rpsScore', `0`);
-});
+        // Set localStorage score
+        localStorage.setItem('rpsScore', `0`);
+    });
+};
 
-
-// localStorage Solution
-
-// Get localStorage score
-//localStorage.getItem('rpsScore');
-
-// Set localStorage score
-//localStorage.setItem('rpsScore', `${score.innerHTML}`);
+initGame();
 
 // Remove key from localStorage
 //localStorage.removeItem('rpsScore');
