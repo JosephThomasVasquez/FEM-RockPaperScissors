@@ -66,7 +66,11 @@ body {
     border-radius: 10px;
 }
 
-.pick-rock, .pick-paper, .pick-scissors {
+
+
+
+
+.pick-paper {
     display: block;
     float: left;
     position: relative;
@@ -75,6 +79,40 @@ body {
     margin: 80px auto;
     transform: scale(1.25);
 }
+
+.pick-scissors {
+    display: block;
+    float: left;
+    position: relative;
+    top: -400px;
+    width: 100%;
+    margin: 80px auto;
+    transform: scale(1.25);
+}
+
+.pick-rock {
+    display: block;
+    float: left;
+    position: relative;
+    top: -400px;
+    width: 100%;
+    margin: 80px auto;
+    transform: scale(1.25);
+}
+
+.symbols-select {
+    display: flex;
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+}
+
+.symbols-select > div {
+    margin: 0 15px;
+    flex: 0 0 auto;
+}
+
+
 
 .bg-image {
     z-index: -1;

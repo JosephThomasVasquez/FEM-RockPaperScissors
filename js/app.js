@@ -92,6 +92,8 @@ const createSymbol = (symbol) => {
     symbolPick.classList.add("col-6");
   }
 
+  
+
   symbolRing.classList.add(symbol.ring);
   symbolImg.classList.add(symbol.css);
   symbolImg.src = symbol.image;
@@ -120,6 +122,13 @@ const createSymbol = (symbol) => {
       cpu();
     });
   } else if (playerSelect) {
+
+    if (symbolPick.classList.contains('col-12')) {
+        symbolPick.classList.remove("col-12");
+      } else if (symbolPick.classList.contains('col-6')) {
+        symbolPick.classList.remove("col-6");
+      }
+    symbolPick.classList.add('symbols-select');
       
     symbolPick.style.transform = "scale(2)";
     symbolPick.style.marginTop = "200px";
