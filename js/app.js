@@ -5,9 +5,9 @@ const modalContainer = document.querySelector('.modalx');
 const modalContent = document.querySelector('.modal-content');
 const closeModal = document.querySelector('.close-btn');
 
-const rockSound = new Audio('sounds/rock.mp3');
-const paperSound = new Audio('sounds/paper.mp3');
-const scissorsSound = new Audio('sounds/scissors.mp3');
+// const rockSound = new Audio('sounds/rock.mp3');
+// const paperSound = new Audio('sounds/paper.mp3');
+// const scissorsSound = new Audio('sounds/scissors.mp3');
 
 
 // Create the main div container with the title and score
@@ -25,13 +25,7 @@ createTitleContainer();
 const gameContainer = () => {
 
     const symbols = [{
-            name: 'ROCK',
-            image: 'images/icon-rock.svg',
-            ring: 'rock-ring',
-            css: 'symbol-rock',
-            value: 2
-        },
-        {
+         
             name: 'PAPER',
             image: 'images/icon-paper.svg',
             ring: 'paper-ring',
@@ -41,11 +35,21 @@ const gameContainer = () => {
         {
             name: 'SCISSORS',
             image: 'images/icon-scissors.svg',
-            ring: 'scissor-ring',
+            ring: 'scissors-ring',
             css: 'symbol-scissors',
             value: 1
         },
+        {
+            name: 'ROCK',
+            image: 'images/icon-rock.svg',
+            ring: 'rock-ring',
+            css: 'symbol-rock',
+            value: 2
+            
+        },
     ];
+
+    
 
     const symbolSet = [];
 
@@ -54,13 +58,24 @@ const gameContainer = () => {
     // Can either create DOM Elements and append or use innerHTML to create the elements on the page.
     // This is using the innerHTML approach
     const createSymbolBtn = name => {
+
+        const symbolPick = document.createElement('div');
+        symbolPick.classList.add(`pick-${name}`);
+        console.log(symbolPick);
+
+        const symbolRing = document.createElement('div');
+        const symbolImg = document.createElement('img');
         
         const createHTML = `<div class="pick-${name} col-6"><div class="${name}-ring"><img class="symbol-${name}" src="images/icon-${name}.svg"></div></div>`;
         symbolSet.push(createHTML);
+        
+        pickerContainer.innerHTML = symbolSet[0] + symbolSet[1] + symbolSet[2];
 
     };
 
-    createSymbolBtn('paper');
+    // createSymbolBtn('paper');
+    // createSymbolBtn('scissors');
+    // createSymbolBtn('rock');
 
     console.log(symbolSet);
 
@@ -74,71 +89,80 @@ const gameContainer = () => {
 
         
 
-        const createSymbol = (symbol) => {
-            
-            const symbolPick = document.createElement('div');
-            const symbolRing = document.createElement('div');
-            const symbolImg = document.createElement('img');
-
-            // Hover sound effect
-            symbolPick.addEventListener('mouseover', e => {
-
-                const isSymbol = e.target.className
-
-                if (isSymbol === 'rock-ring') {
-                    rockSound.play();
-                }else if (isSymbol === 'paper-ring') {
-                    paperSound.play();
-                }else if (isSymbol === 'scissor-ring') {
-                    scissorsSound.play();
-                };
-            });
-            
-            if (gameStart) {
-                if (symbol.value === 0) {
-                    symbolPick.classList.add('pick-paper', 'col-6');
-                }else if (symbol.value === 1) {
-                    symbolPick.classList.add('pick-rock', 'col-6');
-                }else if (symbol.value === 2) {
-                    symbolPick.classList.add('pick-scissors', 'col-12');
-                };
-            };
-            
-            symbolRing.classList.add(symbol.ring);
-            symbolImg.classList.add(symbol.css);
-            symbolImg.src = symbol.image;
-            pickerContainer.appendChild(symbolPick);
-            symbolPick.appendChild(symbolRing);
-            symbolRing.appendChild(symbolImg);
-
-            symbolImg.addEventListener('click', e => {
-
-                const removeSymbol = e.target.parentNode.parentNode.parentNode.className;
-                const removePicked = e.target.parentNode.className;
-
-                if (removeSymbol.includes('picker-container') && removePicked.includes('rock-ring')) {
-                    console.log(symbolSet.indexOf(symbol));
-                    console.log(removePicked);
-                    symbolPick.remove();
-                    
-                }else if (removeSymbol.includes('picker-container') && removePicked.includes('paper-ring')) {
-                    console.log(symbolSet.indexOf(symbol));
-                    console.log(removePicked);
-                    symbolPick.remove();
-
-                }else if (removeSymbol.includes('picker-container') && removePicked.includes('scissor-ring')) {
-                    console.log(symbolSet.indexOf(symbol));
-                    console.log(removePicked);
-                    symbolPick.remove();
-
-                };
-            });
-        };
-    
-        createSymbol(symbols[1]);
-        createSymbol(symbols[2]);
-        createSymbol(symbols[0]);
+        
     } ;
+
+    const createSymbol = (symbol) => {
+            
+        const symbolPick = document.createElement('div');
+        const symbolRing = document.createElement('div');
+        const symbolImg = document.createElement('img');
+
+        // Hover sound effect
+        symbolRing.addEventListener('mouseover', e => {
+
+            const symbolName = symbol.name.toLowerCase();
+            const mouseOverSound = new Audio(`sounds/${symbolName}.mp3`);
+            mouseOverSound.loop = false;
+            mouseOverSound.play();
+            
+        });
+        
+        if (gameStart) {
+            if (symbol.value === 0) {
+                symbolPick.classList.add('pick-paper', 'col-6');
+            }else if (symbol.value === 1) {
+                symbolPick.classList.add('pick-rock', 'col-6');
+            }else if (symbol.value === 2) {
+                symbolPick.classList.add('pick-scissors', 'col-12');
+            };
+        };
+        
+        symbolRing.classList.add(symbol.ring);
+        symbolImg.classList.add(symbol.css);
+        symbolImg.src = symbol.image;
+        pickerContainer.appendChild(symbolPick);
+        symbolPick.appendChild(symbolRing);
+        symbolRing.appendChild(symbolImg);
+
+        symbolImg.addEventListener('click', e => {
+
+            const removeSymbol = e.target.parentNode.parentNode.parentNode.className;
+            const removePicked = e.target.parentNode.className;
+            pickerContainer.innerHTML = '';
+
+            if (removeSymbol.includes('picker-container') && removePicked.includes('rock-ring')) {
+                console.log(symbolSet.indexOf(symbol));
+                console.log(removePicked);
+                //symbolPick.remove();
+                createSymbol(symbols[0]);
+                //symbolPick.style.transform = 'scale(2.0)';
+                
+                
+            }else if (removeSymbol.includes('picker-container') && removePicked.includes('paper-ring')) {
+                console.log(symbolSet.indexOf(symbol));
+                console.log(removePicked);
+                symbolPick.remove();
+
+            }else if (removeSymbol.includes('picker-container') && removePicked.includes('scissors-ring')) {
+                console.log(symbolSet.indexOf(symbol));
+                console.log(removePicked);
+                symbolPick.remove();
+
+            };
+        });
+    };
+
+    // createSymbol(symbols[1]);
+    // createSymbol(symbols[2]);
+    // createSymbol(symbols[0]);
+
+    symbols.forEach(name => {
+        
+        createSymbol(name);
+        console.log(name);
+
+    });
 
     initGame();
 };
