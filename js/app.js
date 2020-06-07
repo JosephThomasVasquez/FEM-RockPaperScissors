@@ -5,15 +5,17 @@ const modalContainer = document.querySelector(".modalx");
 const modalContent = document.querySelector(".modal-content");
 const closeModal = document.querySelector(".close-btn");
 
-// Create the main div container with the title and score
-const createTitleContainer = () => {
-  const scoreAmount = document.createElement("h2");
-  scoreAmount.classList.add("score-value");
-  scoreAmount.innerText = "12";
-  scoreHTML.appendChild(scoreAmount);
-};
+let getScore = localStorage.getItem("rpsScore");
 
-createTitleContainer();
+// Create the main div container with the title and score
+const scoreAmount = document.createElement("h2");
+  scoreAmount.classList.add("score-value");
+  scoreAmount.innerText = `${getScore}`;
+  scoreHTML.appendChild(scoreAmount);
+
+
+let setScore = localStorage.setItem("rpsScore", `${1}`);
+scoreAmount.innerText = `${setScore}`;
 
 // Symbols[] Array
 const symbols = [
@@ -40,7 +42,7 @@ const symbols = [
   },
 ];
 
-const symbolSet = [];
+let symbolSet = [];
 
 let gameStart = true;
 let playerSelect = false;
@@ -52,13 +54,6 @@ const createSymbol = (symbol) => {
   const symbolPick = document.createElement("div");
   const symbolRing = document.createElement("div");
   const symbolImg = document.createElement("img");
-
-  // Hover sound effect
-  symbolRing.addEventListener("mouseover", (e) => {
-    const mouseOverSound = new Audio(`sounds/${symbolName}.mp3`);
-    mouseOverSound.loop = false;
-    mouseOverSound.play();
-  });
 
   if (symbolName === "rock") {
     symbolPick.classList.add(`pick-${symbolName}`);
@@ -77,23 +72,36 @@ const createSymbol = (symbol) => {
 
   // Player selected Symbol
   if (!playerSelect) {
+    // Hover sound effect
+    symbolRing.addEventListener("mouseover", (e) => {
+      const mouseOverSound = new Audio(`sounds/${symbolName}.mp3`);
+      mouseOverSound.loop = false;
+      mouseOverSound.play();
+    });
+
     symbolImg.addEventListener("click", (e) => {
       playerSelect = true;
       symbolSet.push(symbol);
       pickerContainer.innerHTML = "";
       createSymbol(symbol);
       symbolPick.classList.add(`pick-${symbolName}`);
-      console.log(symbolSet);
-      cpu();
 
+      console.log(symbolSet);
+
+      cpu();
     });
+  } else if (playerSelect) {
+    symbolPick.style.transform = "scale(2)";
+    symbolPick.style.marginTop = "200px";
+    symbolPick.classList.add("col-6");
   }
 };
 
 // Initialize the game
 const initGame = () => {
+  scoreAmount.innerText = getScore;
   playerSelect = false;
-
+  symbolSet = [];
   rules();
   score();
 
@@ -152,23 +160,19 @@ const score = () => {
 
 // Computer Select Symbol
 const cpu = () => {
+  // Random roll thrugh symbols
+  const rollSymbol = Math.floor(Math.random() * symbols.length);
 
-    // Random roll thrugh symbols
-    const rollSymbol = Math.floor(Math.random() * symbols.length);
-
-    createSymbol(symbols[rollSymbol]);
-    symbolSet.push(symbols[rollSymbol]);
-    console.log(rollSymbol);
-    console.log(symbolSet);
-
+  createSymbol(symbols[rollSymbol]);
+  symbolSet.push(symbols[rollSymbol]);
+  console.log(rollSymbol);
+  console.log(symbolSet);
 };
 
 //cpu();
 
 // Check conditions to see who wins
-const compareSymbol = () => {
-    
-};
+const compareSymbol = () => {};
 
 initGame();
 

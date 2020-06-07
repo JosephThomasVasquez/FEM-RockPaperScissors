@@ -258,6 +258,12 @@ body {
     transition: all 0.25s ease;
 }
 
+.player-pick {
+    display: block;
+    color: white;
+    font-family: var(--fontFam);
+}
+
 .rules-btn {
     display: block;
     position: relative;
