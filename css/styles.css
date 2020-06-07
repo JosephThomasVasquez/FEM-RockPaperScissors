@@ -279,9 +279,23 @@ body {
     text-align: center;
 }
 
-.rules-btn {
+.play-again {
     display: block;
     position: relative;
+    top: 120px;
+    right: 120px;
+    width: 150px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0);
+    color: hsl(217, 16%, 45%);
+    font-family: var(--fontFam);
+    border-radius: 10px;
+    border: solid 2px hsl(217, 16%, 45%);
+}
+
+.rules-btn {
+    display: block;
+    position: absolute;
     top: 100px;
     right: 120px;
     background-color: rgba(0, 0, 0, 0);
@@ -378,8 +392,8 @@ body {
 
 .reset-score {
     display: block;
-    position: relative;
-    top: 120px;
+    position: absolute;
+    top: 150px;
     right: 120px;
     width: 150px;
     height: 50px;

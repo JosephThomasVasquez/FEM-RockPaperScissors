@@ -49,6 +49,20 @@ let symbolSet = [];
 let gameStart = true;
 let playerSelect = false;
 
+// Restart Option
+const restartOption = () => {
+  const restartContainer = document.createElement("div");
+  const winLossText = document.createElement("div");
+  const playAgainBtn = document.createElement("button");
+
+  pickerContainer.appendChild(restartContainer);
+  restartContainer.appendChild(winLossText);
+
+  playAgainBtn.classList.add('play-again');
+  playAgainBtn.innerText = 'Play Again';
+  restartContainer.appendChild(playAgainBtn);
+};
+
 // Create symbols
 const createSymbol = (symbol) => {
   const symbolName = symbol.name.toLowerCase();
@@ -95,7 +109,7 @@ const createSymbol = (symbol) => {
   } else if (playerSelect) {
     symbolPick.style.transform = "scale(2)";
     symbolPick.style.marginTop = "200px";
-    symbolPick.classList.add("col-6");
+    //symbolPick.classList.add("col-4");
     pickerContainer.appendChild(playerPickText);
     pickerContainer.appendChild(cpuPickText);
   }
@@ -174,12 +188,16 @@ const cpu = () => {
   symbolSet.push(symbols[rollSymbol]);
   console.log(rollSymbol);
   console.log(symbolSet);
+
+  winConditions();
 };
 
 //cpu();
 
-// Check conditions to see who wins
-const compareSymbol = () => {};
+// Check win conditions to see who wins
+const winConditions = () => {
+  restartOption();
+};
 
 initGame();
 
