@@ -260,8 +260,23 @@ body {
 
 .player-pick {
     display: block;
+    width: 100%;
+    bottom: 350px;
     color: white;
     font-family: var(--fontFam);
+    font-size: 2rem;
+    text-align: center;
+}
+
+.cpu-pick {
+    display: block;
+    position: relative;
+    bottom: 350px;
+    width: 100%;
+    color: white;
+    font-family: var(--fontFam);
+    font-size: 2rem;
+    text-align: center;
 }
 
 .rules-btn {
@@ -347,7 +362,6 @@ body {
     opacity: 1;
     visibility: visible;
 }
-
 
 .reset-container {
     position: relative;

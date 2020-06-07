@@ -5,14 +5,16 @@ const modalContainer = document.querySelector(".modalx");
 const modalContent = document.querySelector(".modal-content");
 const closeModal = document.querySelector(".close-btn");
 
+const playerPickText = document.querySelector(".player-pick");
+const cpuPickText = document.querySelector(".cpu-pick");
+
 let getScore = localStorage.getItem("rpsScore");
 
 // Create the main div container with the title and score
 const scoreAmount = document.createElement("h2");
-  scoreAmount.classList.add("score-value");
-  scoreAmount.innerText = `${getScore}`;
-  scoreHTML.appendChild(scoreAmount);
-
+scoreAmount.classList.add("score-value");
+scoreAmount.innerText = `${getScore}`;
+scoreHTML.appendChild(scoreAmount);
 
 let setScore = localStorage.setItem("rpsScore", `${1}`);
 scoreAmount.innerText = `${setScore}`;
@@ -94,6 +96,8 @@ const createSymbol = (symbol) => {
     symbolPick.style.transform = "scale(2)";
     symbolPick.style.marginTop = "200px";
     symbolPick.classList.add("col-6");
+    pickerContainer.appendChild(playerPickText);
+    pickerContainer.appendChild(cpuPickText);
   }
 };
 
@@ -104,6 +108,9 @@ const initGame = () => {
   symbolSet = [];
   rules();
   score();
+
+  pickerContainer.appendChild(playerPickText);
+  pickerContainer.appendChild(cpuPickText);
 
   // Creates symbols based on symbols[] Array
   symbols.forEach((name) => {
