@@ -76,31 +76,6 @@ body {
     transform: scale(1.25);
 }
 
-/* New styles for relative positioning */
-/* .pick-paper {
-    position: relative;
-    top: -320px;
-    left: 180px;
-    width: 140px;
-    transform: scale(1.25);
-}
-
-.pick-rock {
-    position: relative;
-    top: -220px;
-    left: 320px;
-    width: 140px;
-    transform: scale(1.25);
-}
-
-.pick-scissors {
-    position: relative;
-    top: -620px;
-    left: 440px;
-    width: 140px;
-    transform: scale(1.25);
-} */
-
 .bg-image {
     z-index: -1;
     display: block;

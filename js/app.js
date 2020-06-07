@@ -1,3 +1,5 @@
+// Variables and DOM Elements
+
 const bodyHTML = document.querySelector("body");
 const scoreHTML = document.querySelector(".text-score");
 const pickerContainer = document.querySelector(".picker-container");
@@ -18,6 +20,14 @@ scoreHTML.appendChild(scoreAmount);
 
 let setScore = localStorage.setItem("rpsScore", `${1}`);
 scoreAmount.innerText = `${setScore}`;
+
+let symbolSet = [];
+let gameStart = true;
+let playerSelect = false;
+
+
+
+
 
 // Symbols[] Array
 const symbols = [
@@ -44,10 +54,9 @@ const symbols = [
   },
 ];
 
-let symbolSet = [];
 
-let gameStart = true;
-let playerSelect = false;
+
+
 
 // Restart Option
 const restartOption = () => {
@@ -62,6 +71,10 @@ const restartOption = () => {
   playAgainBtn.innerText = 'Play Again';
   restartContainer.appendChild(playAgainBtn);
 };
+
+
+
+
 
 // Create symbols
 const createSymbol = (symbol) => {
@@ -89,13 +102,13 @@ const createSymbol = (symbol) => {
   // Player selected Symbol
   if (!playerSelect) {
     // Hover sound effect
-    symbolRing.addEventListener("mouseover", (e) => {
+    symbolRing.addEventListener('mouseover', (e) => {
       const mouseOverSound = new Audio(`sounds/${symbolName}.mp3`);
       mouseOverSound.loop = false;
       mouseOverSound.play();
     });
 
-    symbolImg.addEventListener("click", (e) => {
+    symbolImg.addEventListener('click', (e) => {
       playerSelect = true;
       symbolSet.push(symbol);
       pickerContainer.innerHTML = "";
@@ -107,6 +120,7 @@ const createSymbol = (symbol) => {
       cpu();
     });
   } else if (playerSelect) {
+      
     symbolPick.style.transform = "scale(2)";
     symbolPick.style.marginTop = "200px";
     //symbolPick.classList.add("col-4");
@@ -114,6 +128,10 @@ const createSymbol = (symbol) => {
     pickerContainer.appendChild(cpuPickText);
   }
 };
+
+
+
+
 
 // Initialize the game
 const initGame = () => {
@@ -131,6 +149,10 @@ const initGame = () => {
     createSymbol(name);
   });
 };
+
+
+
+
 
 // Rules function
 const rules = () => {
@@ -156,6 +178,10 @@ const rules = () => {
   modal();
 };
 
+
+
+
+
 // Score Function
 const score = () => {
   const resetContainer = document.createElement("div");
@@ -179,6 +205,10 @@ const score = () => {
   });
 };
 
+
+
+
+
 // Computer Select Symbol
 const cpu = () => {
   // Random roll thrugh symbols
@@ -193,6 +223,10 @@ const cpu = () => {
 };
 
 //cpu();
+
+
+
+
 
 // Check win conditions to see who wins
 const winConditions = () => {
