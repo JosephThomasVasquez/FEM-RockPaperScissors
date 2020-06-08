@@ -272,9 +272,10 @@ body {
 }
 
 .player-pick {
-    display: block;
-    width: 100%;
-    bottom: 350px;
+    position: absolute;
+    width: 200px;
+    top: 200px;
+    left: 30%;
     color: white;
     font-family: var(--fontFam);
     font-size: 2rem;
@@ -282,10 +283,10 @@ body {
 }
 
 .cpu-pick {
-    display: block;
-    position: relative;
-    bottom: 350px;
-    width: 100%;
+    position: absolute;
+    width: 200px;
+    top: 200px;
+    right: 30%;
     color: white;
     font-family: var(--fontFam);
     font-size: 2rem;
@@ -295,8 +296,6 @@ body {
 .play-again {
     display: block;
     position: relative;
-    top: 120px;
-    right: 120px;
     width: 150px;
     height: 50px;
     background-color: rgba(0, 0, 0, 0);

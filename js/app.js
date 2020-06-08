@@ -64,10 +64,14 @@ const restartOption = () => {
   const winLossText = document.createElement("div");
   const playAgainBtn = document.createElement("button");
 
+    winLossText.innerText = 'You Win/Lose';
+    winLossText.classList.add('player-pick');
+
   pickerContainer.appendChild(restartContainer);
   restartContainer.appendChild(winLossText);
 
   playAgainBtn.classList.add('play-again');
+  playAgainBtn.classList.add('symbols-select');
   playAgainBtn.innerText = 'Play Again';
   restartContainer.appendChild(playAgainBtn);
 };
@@ -119,9 +123,19 @@ const createSymbol = (symbol) => {
 
       console.log(symbolSet);
 
-      cpu();
+      setTimeout(() => {
+
+        if (symbolSet.length === 1 ) {
+            restartOption();
+            cpu();
+        };
+        
+      }, 1000);
+      
     });
   } else if (playerSelect) {
+
+    
 
     if (symbolPick.classList.contains('col-12')) {
         symbolPick.classList.remove("col-12");
@@ -131,7 +145,6 @@ const createSymbol = (symbol) => {
     symbolPick.classList.add('symbols-select');
       
     symbolPick.style.transform = "scale(2)";
-    symbolPick.style.marginTop = "200px";
     //symbolPick.classList.add("col-4");
     pickerContainer.appendChild(playerPickText);
     pickerContainer.appendChild(cpuPickText);
@@ -239,7 +252,42 @@ const cpu = () => {
 
 // Check win conditions to see who wins
 const winConditions = () => {
-  restartOption();
+  //restartOption();
+    
+    // Check which symbol is the winner
+    if (symbolSet[0].name === 'PAPER') {
+
+        if (symbolSet[1].name === 'ROCK') {
+            console.log('Player Wins!');
+        }else {
+            if (symbolSet[1].name === 'SCISSORS') {
+                console.log('CPU Wins!');
+            }
+        }
+
+        if (symbolSet[0].name === 'SCISSORS') {
+
+            if (symbolSet[1].name === 'ROCK') {
+                console.log('CPU Wins!');
+            }else {
+                if (symbolSet[1].name === 'PAPER') {
+                    console.log('Player Wins!');
+                }
+            }
+        }
+
+        if (symbolSet[0].name === 'ROCK') {
+
+            if (symbolSet[1].name === 'SCISSORS') {
+                console.log('Player Wins!');
+            }else {
+                if (symbolSet[1].name === 'PAPER') {
+                    console.log('CPU Wins!');
+                }
+            }
+        }
+    };
+
 };
 
 initGame();
