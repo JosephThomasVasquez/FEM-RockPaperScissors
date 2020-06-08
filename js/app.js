@@ -59,16 +59,16 @@ const symbols = [
 
 
 
-let playerWin = 'You Win';
+const restartContainer = document.createElement("div");
+const winLossText = document.createElement("div");
+const playAgainBtn = document.createElement("button");
 
 // Restart Option
 const restartOption = () => {
-  const restartContainer = document.createElement("div");
-  const winLossText = document.createElement("div");
-  const playAgainBtn = document.createElement("button");
+  
 
   winLossText.classList.add(`player-status`);
-  winLossText.innerText = `${playerWin}`;
+  //winLossText.innerText = ``;
 
   pickerContainer.appendChild(restartContainer);
   restartContainer.appendChild(winLossText);
@@ -257,37 +257,42 @@ const winConditions = () => {
     
     // Check which symbol is the winner
     if (symbolSet[0].name === 'PAPER') {
-
         if (symbolSet[1].name === 'ROCK') {
             console.log('Player Wins!');
             localStorage.setItem('rpsScore', `${playerScore += 1}`);
-            scoreAmount.innerText = `${playerScore}`;
+            winLossText.innerText = 'You Win';
         }else if (symbolSet[1].name === 'SCISSORS') {
             console.log('CPU Wins!');
+            winLossText.innerText = 'You Lose';
+            }else if (symbolSet[1].name === symbolSet[0].name) {
+                winLossText.innerText = 'Tie!';
             }
         };
 
         if (symbolSet[0].name === 'SCISSORS') {
-
             if (symbolSet[1].name === 'ROCK') {
                 console.log('CPU Wins!');
+                winLossText.innerText = 'You Lose';
             }else if (symbolSet[1].name === 'PAPER') {
                     console.log('Player Wins!');
                     localStorage.setItem('rpsScore', `${playerScore += 1}`);
-                    scoreAmount.innerText = `${playerScore}`;
+                    winLossText.innerText = 'You Win';
+                }else if (symbolSet[1].name === symbolSet[0].name) {
+                    winLossText.innerText = 'Tie!';
                 }
             };
 
         if (symbolSet[0].name === 'ROCK') {
-
             if (symbolSet[1].name === 'SCISSORS') {
                 console.log('Player Wins!');
                 localStorage.setItem('rpsScore', `${playerScore += 1}`);
-                scoreAmount.innerText = `${playerScore}`;
+                winLossText.innerText = 'You Win';
             }else if (symbolSet[1].name === 'PAPER') {
                     console.log('CPU Wins!');
- 
-            };
+                    winLossText.innerText = 'You Lose';
+            }else if (symbolSet[1].name === symbolSet[0].name) {
+                winLossText.innerText = 'Tie!';
+            }
         };
 };
 
