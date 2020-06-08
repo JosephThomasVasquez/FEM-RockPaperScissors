@@ -2,3 +2,8 @@
     from {transform: scale(1.1);}
     to {transform: scale(1);}
 }
+
+@keyframes appear {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}

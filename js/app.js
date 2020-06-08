@@ -6,6 +6,7 @@ const pickerContainer = document.querySelector(".picker-container");
 const modalContainer = document.querySelector(".modalx");
 const modalContent = document.querySelector(".modal-content");
 const closeModal = document.querySelector(".close-btn");
+const bgImage = document.querySelector('.bg-image');
 
 const playerPickText = document.querySelector(".player-pick");
 const cpuPickText = document.querySelector(".cpu-pick");
@@ -109,6 +110,8 @@ const createSymbol = (symbol) => {
 
     symbolImg.addEventListener("click", (e) => {
       playerSelect = true;
+      bgImage.style.visibility = 'hidden';
+      playerPickText.style.visibility = 'visible';
       symbolSet.push(symbol);
       pickerContainer.innerHTML = "";
       createSymbol(symbol);
@@ -141,6 +144,11 @@ const createSymbol = (symbol) => {
 // Initialize the game
 const initGame = () => {
   scoreAmount.innerText = getScore;
+
+  bgImage.style.visibility = 'visible';
+  playerPickText.style.visibility = 'hidden';
+  cpuPickText.style.visibility = 'hidden';
+
   playerSelect = false;
   symbolSet = [];
   let gameStart = true;
@@ -207,6 +215,7 @@ const score = () => {
 
 // Computer Select Symbol
 const cpu = () => {
+    cpuPickText.style.visibility = 'visible';
   // Random roll thrugh symbols
   const rollSymbol = Math.floor(Math.random() * symbols.length);
 
@@ -222,7 +231,6 @@ const cpu = () => {
 
 // Check win conditions to see who wins
 const winConditions = () => {
-  //restartOption();
 
   // Check which symbol is the winner
   if (symbolSet[0].name === "PAPER") {

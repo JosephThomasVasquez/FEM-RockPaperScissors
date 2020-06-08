@@ -106,6 +106,10 @@ body {
     padding: 10% 0;
     align-items: center;
     justify-content: center;
+    animation-name: appear;
+    animation-duration: 0.75s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
 }
 
 .symbols-select > div {
@@ -300,10 +304,11 @@ body {
 }
 
 .player-pick {
+    display: flex;
     position: absolute;
     width: 200px;
     top: 200px;
-    left: 30%;
+    transform: translate(25%, 0);
     color: white;
     font-family: var(--fontFam);
     font-size: 2rem;
@@ -311,10 +316,11 @@ body {
 }
 
 .cpu-pick {
+    display: flex;
     position: absolute;
     width: 200px;
     top: 200px;
-    right: 30%;
+    transform: translate(300%, 0);
     color: white;
     font-family: var(--fontFam);
     font-size: 2rem;
