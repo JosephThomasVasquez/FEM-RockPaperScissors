@@ -26,12 +26,6 @@ scoreHTML.appendChild(scoreAmount);
 let setScore = localStorage.setItem("rpsScore", `${1}`);
 scoreAmount.innerText = `${setScore}`;
 
-
-
-
-
-
-
 // Symbols[] Array
 const symbols = [
   {
@@ -57,31 +51,29 @@ const symbols = [
   },
 ];
 
-
-
 const restartContainer = document.createElement("div");
 const winLossText = document.createElement("div");
 const playAgainBtn = document.createElement("button");
 
 // Restart Option
 const restartOption = () => {
-  
-
   winLossText.classList.add(`player-status`);
   //winLossText.innerText = ``;
 
   pickerContainer.appendChild(restartContainer);
   restartContainer.appendChild(winLossText);
 
-  playAgainBtn.classList.add('play-again');
-  playAgainBtn.classList.add('symbols-select');
-  playAgainBtn.innerText = 'Play Again';
+  playAgainBtn.classList.add("play-again");
+  playAgainBtn.classList.add("symbols-select");
+  playAgainBtn.innerText = "Play Again";
   restartContainer.appendChild(playAgainBtn);
+
+  playAgainBtn.addEventListener('click', () => {
+      pickerContainer.innerHTML = '';
+    initGame();
+  });
+
 };
-
-
-
-
 
 // Create symbols
 const createSymbol = (symbol) => {
@@ -99,8 +91,6 @@ const createSymbol = (symbol) => {
     symbolPick.classList.add("col-6");
   }
 
-  
-
   symbolRing.classList.add(symbol.ring);
   symbolImg.classList.add(symbol.css);
   symbolImg.src = symbol.image;
@@ -111,13 +101,13 @@ const createSymbol = (symbol) => {
   // Player selected Symbol
   if (!playerSelect) {
     // Hover sound effect
-    symbolRing.addEventListener('mouseover', (e) => {
+    symbolRing.addEventListener("mouseover", (e) => {
       const mouseOverSound = new Audio(`sounds/${symbolName}.mp3`);
       mouseOverSound.loop = false;
       mouseOverSound.play();
     });
 
-    symbolImg.addEventListener('click', (e) => {
+    symbolImg.addEventListener("click", (e) => {
       playerSelect = true;
       symbolSet.push(symbol);
       pickerContainer.innerHTML = "";
@@ -127,24 +117,20 @@ const createSymbol = (symbol) => {
       console.log(symbolSet);
 
       setTimeout(() => {
-
-        if (symbolSet.length === 1 ) {
-            restartOption();
-            cpu();
-        };
-        
+        if (symbolSet.length === 1) {
+          restartOption();
+          cpu();
+        }
       }, 1000);
-      
     });
   } else if (playerSelect) {
+    if (symbolPick.classList.contains("col-12")) {
+      symbolPick.classList.remove("col-12");
+    } else if (symbolPick.classList.contains("col-6")) {
+      symbolPick.classList.remove("col-6");
+    }
+    symbolPick.classList.add("symbols-select");
 
-    if (symbolPick.classList.contains('col-12')) {
-        symbolPick.classList.remove("col-12");
-      } else if (symbolPick.classList.contains('col-6')) {
-        symbolPick.classList.remove("col-6");
-      }
-    symbolPick.classList.add('symbols-select');
-      
     symbolPick.style.transform = "scale(2)";
     //symbolPick.classList.add("col-4");
     pickerContainer.appendChild(playerPickText);
@@ -152,15 +138,14 @@ const createSymbol = (symbol) => {
   }
 };
 
-
-
-
-
 // Initialize the game
 const initGame = () => {
   scoreAmount.innerText = getScore;
   playerSelect = false;
   symbolSet = [];
+  let gameStart = true;
+
+  let playerScore = 5;
   rules();
   score();
 
@@ -172,10 +157,6 @@ const initGame = () => {
     createSymbol(name);
   });
 };
-
-
-
-
 
 // Rules function
 const rules = () => {
@@ -201,10 +182,6 @@ const rules = () => {
   modal();
 };
 
-
-
-
-
 // Score Function
 const score = () => {
   const resetContainer = document.createElement("div");
@@ -228,10 +205,6 @@ const score = () => {
   });
 };
 
-
-
-
-
 // Computer Select Symbol
 const cpu = () => {
   // Random roll thrugh symbols
@@ -247,53 +220,49 @@ const cpu = () => {
 
 //cpu();
 
-
-
-
-
 // Check win conditions to see who wins
 const winConditions = () => {
   //restartOption();
-    
-    // Check which symbol is the winner
-    if (symbolSet[0].name === 'PAPER') {
-        if (symbolSet[1].name === 'ROCK') {
-            console.log('Player Wins!');
-            localStorage.setItem('rpsScore', `${playerScore += 1}`);
-            winLossText.innerText = 'You Win';
-        }else if (symbolSet[1].name === 'SCISSORS') {
-            console.log('CPU Wins!');
-            winLossText.innerText = 'You Lose';
-            }else if (symbolSet[1].name === symbolSet[0].name) {
-                winLossText.innerText = 'Tie!';
-            }
-        };
 
-        if (symbolSet[0].name === 'SCISSORS') {
-            if (symbolSet[1].name === 'ROCK') {
-                console.log('CPU Wins!');
-                winLossText.innerText = 'You Lose';
-            }else if (symbolSet[1].name === 'PAPER') {
-                    console.log('Player Wins!');
-                    localStorage.setItem('rpsScore', `${playerScore += 1}`);
-                    winLossText.innerText = 'You Win';
-                }else if (symbolSet[1].name === symbolSet[0].name) {
-                    winLossText.innerText = 'Tie!';
-                }
-            };
+  // Check which symbol is the winner
+  if (symbolSet[0].name === "PAPER") {
+    if (symbolSet[1].name === "ROCK") {
+      console.log("Player Wins!");
+      localStorage.setItem("rpsScore", `${(playerScore += 1)}`);
+      winLossText.innerText = "You Win";
+    } else if (symbolSet[1].name === "SCISSORS") {
+      console.log("CPU Wins!");
+      winLossText.innerText = "You Lose";
+    } else if (symbolSet[1].name === symbolSet[0].name) {
+      winLossText.innerText = "Tie!";
+    }
+  }
 
-        if (symbolSet[0].name === 'ROCK') {
-            if (symbolSet[1].name === 'SCISSORS') {
-                console.log('Player Wins!');
-                localStorage.setItem('rpsScore', `${playerScore += 1}`);
-                winLossText.innerText = 'You Win';
-            }else if (symbolSet[1].name === 'PAPER') {
-                    console.log('CPU Wins!');
-                    winLossText.innerText = 'You Lose';
-            }else if (symbolSet[1].name === symbolSet[0].name) {
-                winLossText.innerText = 'Tie!';
-            }
-        };
+  if (symbolSet[0].name === "SCISSORS") {
+    if (symbolSet[1].name === "ROCK") {
+      console.log("CPU Wins!");
+      winLossText.innerText = "You Lose";
+    } else if (symbolSet[1].name === "PAPER") {
+      console.log("Player Wins!");
+      localStorage.setItem("rpsScore", `${(playerScore += 1)}`);
+      winLossText.innerText = "You Win";
+    } else if (symbolSet[1].name === symbolSet[0].name) {
+      winLossText.innerText = "Tie!";
+    }
+  }
+
+  if (symbolSet[0].name === "ROCK") {
+    if (symbolSet[1].name === "SCISSORS") {
+      console.log("Player Wins!");
+      localStorage.setItem("rpsScore", `${(playerScore += 1)}`);
+      winLossText.innerText = "You Win";
+    } else if (symbolSet[1].name === "PAPER") {
+      console.log("CPU Wins!");
+      winLossText.innerText = "You Lose";
+    } else if (symbolSet[1].name === symbolSet[0].name) {
+      winLossText.innerText = "Tie!";
+    }
+  }
 };
 
 initGame();
