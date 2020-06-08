@@ -272,14 +272,29 @@ body {
     transition: all 0.25s ease;
 }
 
+.play-again {
+    display: block;
+    position: relative;
+    top: -200px;
+    width: 200px;
+    padding: 2%;
+    background-color: rgba(255, 255, 255, 1);
+    color: hsl(217, 16%, 45%);
+    font-family: var(--fontFam);
+    font-size: 1.5rem;
+    text-align: center;
+    border-radius: 10px;
+    border: solid 2px hsl(217, 16%, 45%);
+}
+
 .player-status {
     position: absolute;
     top: 300px;
-    width: 10%;
+    width: 200px;
     margin: 0 auto;
     color: white;
     font-family: var(--fontFam);
-    font-size: 2rem;
+    font-size: 3rem;
     text-align: center;
 }
 
@@ -305,23 +320,10 @@ body {
     text-align: center;
 }
 
-.play-again {
-    display: block;
-    position: relative;
-    top: -200px;
-    width: 150px;
-    height: 50px;
-    background-color: rgba(0, 0, 0, 0);
-    color: hsl(217, 16%, 45%);
-    font-family: var(--fontFam);
-    border-radius: 10px;
-    border: solid 2px hsl(217, 16%, 45%);
-}
-
 .rules-btn {
     display: block;
     position: absolute;
-    top: 100px;
+    bottom: 200px;
     right: 120px;
     background-color: rgba(0, 0, 0, 0);
     color: hsl(217, 16%, 45%);
@@ -418,7 +420,7 @@ body {
 .reset-score {
     display: block;
     position: absolute;
-    top: 150px;
+    bottom: 140px;
     right: 120px;
     width: 150px;
     height: 50px;
