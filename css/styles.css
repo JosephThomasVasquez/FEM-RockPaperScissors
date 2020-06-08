@@ -103,12 +103,13 @@ body {
 .symbols-select {
     display: flex;
     width: 30%;
+    padding: 10% 0;
     align-items: center;
     justify-content: center;
 }
 
 .symbols-select > div {
-    margin: 0 15px;
+    margin: 0;
     flex: 0 0 auto;
 }
 
@@ -271,6 +272,17 @@ body {
     transition: all 0.25s ease;
 }
 
+.player-status {
+    position: absolute;
+    top: 300px;
+    width: 10%;
+    margin: 0 auto;
+    color: white;
+    font-family: var(--fontFam);
+    font-size: 2rem;
+    text-align: center;
+}
+
 .player-pick {
     position: absolute;
     width: 200px;
@@ -296,6 +308,7 @@ body {
 .play-again {
     display: block;
     position: relative;
+    top: -200px;
     width: 150px;
     height: 50px;
     background-color: rgba(0, 0, 0, 0);

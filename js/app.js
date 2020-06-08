@@ -10,6 +10,11 @@ const closeModal = document.querySelector(".close-btn");
 const playerPickText = document.querySelector(".player-pick");
 const cpuPickText = document.querySelector(".cpu-pick");
 
+let symbolSet = [];
+let gameStart = true;
+let playerSelect = false;
+let playerScore = 5;
+
 let getScore = localStorage.getItem("rpsScore");
 
 // Create the main div container with the title and score
@@ -21,9 +26,7 @@ scoreHTML.appendChild(scoreAmount);
 let setScore = localStorage.setItem("rpsScore", `${1}`);
 scoreAmount.innerText = `${setScore}`;
 
-let symbolSet = [];
-let gameStart = true;
-let playerSelect = false;
+
 
 
 
@@ -56,7 +59,7 @@ const symbols = [
 
 
 
-
+let playerWin = 'You Win';
 
 // Restart Option
 const restartOption = () => {
@@ -64,8 +67,8 @@ const restartOption = () => {
   const winLossText = document.createElement("div");
   const playAgainBtn = document.createElement("button");
 
-    winLossText.innerText = 'You Win/Lose';
-    winLossText.classList.add('player-pick');
+  winLossText.classList.add(`player-status`);
+  winLossText.innerText = `${playerWin}`;
 
   pickerContainer.appendChild(restartContainer);
   restartContainer.appendChild(winLossText);
@@ -134,8 +137,6 @@ const createSymbol = (symbol) => {
       
     });
   } else if (playerSelect) {
-
-    
 
     if (symbolPick.classList.contains('col-12')) {
         symbolPick.classList.remove("col-12");
@@ -259,35 +260,35 @@ const winConditions = () => {
 
         if (symbolSet[1].name === 'ROCK') {
             console.log('Player Wins!');
-        }else {
-            if (symbolSet[1].name === 'SCISSORS') {
-                console.log('CPU Wins!');
+            localStorage.setItem('rpsScore', `${playerScore += 1}`);
+            scoreAmount.innerText = `${playerScore}`;
+        }else if (symbolSet[1].name === 'SCISSORS') {
+            console.log('CPU Wins!');
             }
-        }
+        };
 
         if (symbolSet[0].name === 'SCISSORS') {
 
             if (symbolSet[1].name === 'ROCK') {
                 console.log('CPU Wins!');
-            }else {
-                if (symbolSet[1].name === 'PAPER') {
+            }else if (symbolSet[1].name === 'PAPER') {
                     console.log('Player Wins!');
+                    localStorage.setItem('rpsScore', `${playerScore += 1}`);
+                    scoreAmount.innerText = `${playerScore}`;
                 }
-            }
-        }
+            };
 
         if (symbolSet[0].name === 'ROCK') {
 
             if (symbolSet[1].name === 'SCISSORS') {
                 console.log('Player Wins!');
-            }else {
-                if (symbolSet[1].name === 'PAPER') {
+                localStorage.setItem('rpsScore', `${playerScore += 1}`);
+                scoreAmount.innerText = `${playerScore}`;
+            }else if (symbolSet[1].name === 'PAPER') {
                     console.log('CPU Wins!');
-                }
-            }
-        }
-    };
-
+ 
+            };
+        };
 };
 
 initGame();
