@@ -236,7 +236,7 @@ const winConditions = () => {
   if (symbolSet[0].name === "PAPER") {
     if (symbolSet[1].name === "ROCK") {
       console.log("Player Wins!");
-      localStorage.setItem("rpsScore", `${(parseInt(getScore) += 1)}`);
+      localStorage.setItem("rpsScore", `${(parseInt(getScore) + 1)}`);
       scoreAmount.innerText = `${incrementScore}`;
       winLossText.innerText = "You Win";
     } else if (symbolSet[1].name === "SCISSORS") {
