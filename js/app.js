@@ -16,16 +16,15 @@ let gameStart = true;
 let playerSelect = false;
 let playerScore = 5;
 
+
 let getScore = localStorage.getItem("rpsScore");
+let incrementScore = parseInt(getScore) + 1;
 
 // Create the main div container with the title and score
 const scoreAmount = document.createElement("h2");
 scoreAmount.classList.add("score-value");
-scoreAmount.innerText = `${getScore}`;
+scoreAmount.innerText = getScore;
 scoreHTML.appendChild(scoreAmount);
-
-let setScore = localStorage.setItem("rpsScore", `${1}`);
-scoreAmount.innerText = `${setScore}`;
 
 // Symbols[] Array
 const symbols = [
@@ -143,7 +142,8 @@ const createSymbol = (symbol) => {
 
 // Initialize the game
 const initGame = () => {
-  scoreAmount.innerText = getScore;
+    getScore;
+    scoreAmount.innerText = `${getScore}`;
 
   bgImage.style.visibility = 'visible';
   playerPickText.style.visibility = 'hidden';
@@ -236,7 +236,8 @@ const winConditions = () => {
   if (symbolSet[0].name === "PAPER") {
     if (symbolSet[1].name === "ROCK") {
       console.log("Player Wins!");
-      localStorage.setItem("rpsScore", `${(playerScore += 1)}`);
+      localStorage.setItem("rpsScore", `${(parseInt(getScore) += 1)}`);
+      scoreAmount.innerText = `${incrementScore}`;
       winLossText.innerText = "You Win";
     } else if (symbolSet[1].name === "SCISSORS") {
       console.log("CPU Wins!");
@@ -252,7 +253,8 @@ const winConditions = () => {
       winLossText.innerText = "You Lose";
     } else if (symbolSet[1].name === "PAPER") {
       console.log("Player Wins!");
-      localStorage.setItem("rpsScore", `${(playerScore += 1)}`);
+      localStorage.setItem("rpsScore", `${(parseInt(getScore) + 1)}`);
+      scoreAmount.innerText = `${incrementScore}`;
       winLossText.innerText = "You Win";
     } else if (symbolSet[1].name === symbolSet[0].name) {
       winLossText.innerText = "Tie!";
@@ -262,7 +264,8 @@ const winConditions = () => {
   if (symbolSet[0].name === "ROCK") {
     if (symbolSet[1].name === "SCISSORS") {
       console.log("Player Wins!");
-      localStorage.setItem("rpsScore", `${(playerScore += 1)}`);
+      localStorage.setItem("rpsScore", `${(parseInt(getScore) + 1)}`);
+      scoreAmount.innerText = `${incrementScore}`;
       winLossText.innerText = "You Win";
     } else if (symbolSet[1].name === "PAPER") {
       console.log("CPU Wins!");
