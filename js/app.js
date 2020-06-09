@@ -71,6 +71,7 @@ const restartOption = () => {
   playAgainBtn.addEventListener('click', () => {
       pickerContainer.innerHTML = '';
     initGame();
+    location.reload();
   });
 
 };
@@ -206,10 +207,9 @@ const score = () => {
   // Reset Score Button
   resetScoreButton.addEventListener("click", () => {
     // Get localStorage score
-    localStorage.getItem("rpsScore");
+    localStorage.setItem("rpsScore", '0');
+    location.reload();
 
-    // Set localStorage score
-    localStorage.setItem("rpsScore", `0`);
   });
 };
 
@@ -277,6 +277,3 @@ const winConditions = () => {
 };
 
 initGame();
-
-// Remove key from localStorage
-//localStorage.removeItem('rpsScore');
