@@ -1,0 +1,23 @@
+@media screen and (max-width: 600px) {
+
+    html {
+        height: 100%;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-repeat:no-repeat;
+    }
+
+    .container.main {
+        width: 90%;
+    }
+
+    .container.picker {
+        width: 90%;
+    }
+
+    .picker-container {
+        height: 400px;
+    }
+}
