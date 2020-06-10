@@ -20,4 +20,29 @@
     .picker-container {
         height: 400px;
     }
+
+    .title {
+        display: inline-block;
+        width: 75%;
+        margin: 0 auto;
+        margin-top: 0px;
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    .score {
+        width: 25%;
+    }
+
+    .pick-paper, .pick-scissors, .pick-rock {
+        bottom: 50%;
+        margin: 10px auto;
+        transform: scale(1);
+    }
+
+    .bg-image {
+        width: 100%;
+        transform: scale(0.75);
+    }
+
 }

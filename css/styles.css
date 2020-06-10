@@ -1,6 +1,6 @@
 
 @import "animations.css";
-@import ".css";
+@import "media.css";
 
 :root {
     --fontFam: 'Barlow Semi Condensed', sans-serif;
