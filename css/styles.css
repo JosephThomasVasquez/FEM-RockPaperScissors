@@ -80,7 +80,7 @@ body {
     display: block;
     float: left;
     position: relative;
-    top: -400px;
+    top: -450px;
     width: 100%;
     margin: 80px auto;
     transform: scale(1.25);
@@ -90,7 +90,7 @@ body {
     display: block;
     float: left;
     position: relative;
-    top: -400px;
+    top: -450px;
     width: 100%;
     margin: 80px auto;
     transform: scale(1.25);
@@ -100,7 +100,7 @@ body {
     display: block;
     float: left;
     position: relative;
-    top: -400px;
+    top: -450px;
     width: 100%;
     margin: 80px auto;
     transform: scale(1.25);
@@ -122,8 +122,6 @@ body {
     margin: 0;
     flex: 0 0 auto;
 }
-
-
 
 .bg-image {
     z-index: -1;
@@ -451,18 +449,4 @@ body {
     animation-iteration-count: 1;
     animation-duration: 0.5s;
     transition: all 0.25s ease-out;
-}
-
-.attribution {
-    display: inline-block;
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
-    margin: 0 auto;
-    color: hsl(217, 27%, 34%);
-    text-align: center;
-}
-
-a {
-    color: hsl(217, 50%, 35%);
 }

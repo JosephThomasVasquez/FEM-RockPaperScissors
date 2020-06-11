@@ -6,7 +6,7 @@ const pickerContainer = document.querySelector(".picker-container");
 const modalContainer = document.querySelector(".modalx");
 const modalContent = document.querySelector(".modal-content");
 const closeModal = document.querySelector(".close-btn");
-const bgImage = document.querySelector('.bg-image');
+const bgImage = document.querySelector(".bg-image");
 
 const playerPickText = document.querySelector(".player-pick");
 const cpuPickText = document.querySelector(".cpu-pick");
@@ -15,7 +15,6 @@ let symbolSet = [];
 let gameStart = true;
 let playerSelect = false;
 let playerScore = 5;
-
 
 let getScore = localStorage.getItem("rpsScore");
 let incrementScore = parseInt(getScore) + 1;
@@ -68,12 +67,11 @@ const restartOption = () => {
   playAgainBtn.innerText = "Play Again";
   restartContainer.appendChild(playAgainBtn);
 
-  playAgainBtn.addEventListener('click', () => {
-      pickerContainer.innerHTML = '';
+  playAgainBtn.addEventListener("click", () => {
+    pickerContainer.innerHTML = "";
     initGame();
     location.reload();
   });
-
 };
 
 // Create symbols
@@ -102,16 +100,16 @@ const createSymbol = (symbol) => {
   // Player selected Symbol
   if (!playerSelect) {
     // Hover sound effect
-    symbolRing.addEventListener("mouseover", (e) => {
+    symbolRing.addEventListener("mouseover", (e) => {});
+
+    symbolImg.addEventListener("click", (e) => {
       const mouseOverSound = new Audio(`sounds/${symbolName}.mp3`);
       mouseOverSound.loop = false;
       mouseOverSound.play();
-    });
 
-    symbolImg.addEventListener("click", (e) => {
       playerSelect = true;
-      bgImage.style.visibility = 'hidden';
-      playerPickText.style.visibility = 'visible';
+      bgImage.style.visibility = "hidden";
+      playerPickText.style.visibility = "visible";
       symbolSet.push(symbol);
       pickerContainer.innerHTML = "";
       createSymbol(symbol);
@@ -143,12 +141,12 @@ const createSymbol = (symbol) => {
 
 // Initialize the game
 const initGame = () => {
-    getScore;
-    scoreAmount.innerText = `${getScore}`;
+  getScore;
+  scoreAmount.innerText = `${getScore}`;
 
-  bgImage.style.visibility = 'visible';
-  playerPickText.style.visibility = 'hidden';
-  cpuPickText.style.visibility = 'hidden';
+  bgImage.style.visibility = "visible";
+  playerPickText.style.visibility = "hidden";
+  cpuPickText.style.visibility = "hidden";
 
   playerSelect = false;
   symbolSet = [];
@@ -207,15 +205,14 @@ const score = () => {
   // Reset Score Button
   resetScoreButton.addEventListener("click", () => {
     // Get localStorage score
-    localStorage.setItem("rpsScore", '0');
+    localStorage.setItem("rpsScore", "0");
     location.reload();
-
   });
 };
 
 // Computer Select Symbol
 const cpu = () => {
-    cpuPickText.style.visibility = 'visible';
+  cpuPickText.style.visibility = "visible";
   // Random roll thrugh symbols
   const rollSymbol = Math.floor(Math.random() * symbols.length);
 
@@ -231,12 +228,11 @@ const cpu = () => {
 
 // Check win conditions to see who wins
 const winConditions = () => {
-
   // Check which symbol is the winner
   if (symbolSet[0].name === "PAPER") {
     if (symbolSet[1].name === "ROCK") {
       console.log("Player Wins!");
-      localStorage.setItem("rpsScore", `${(parseInt(getScore) + 1)}`);
+      localStorage.setItem("rpsScore", `${parseInt(getScore) + 1}`);
       scoreAmount.innerText = `${incrementScore}`;
       winLossText.innerText = "You Win";
     } else if (symbolSet[1].name === "SCISSORS") {
@@ -253,7 +249,7 @@ const winConditions = () => {
       winLossText.innerText = "You Lose";
     } else if (symbolSet[1].name === "PAPER") {
       console.log("Player Wins!");
-      localStorage.setItem("rpsScore", `${(parseInt(getScore) + 1)}`);
+      localStorage.setItem("rpsScore", `${parseInt(getScore) + 1}`);
       scoreAmount.innerText = `${incrementScore}`;
       winLossText.innerText = "You Win";
     } else if (symbolSet[1].name === symbolSet[0].name) {
@@ -264,7 +260,7 @@ const winConditions = () => {
   if (symbolSet[0].name === "ROCK") {
     if (symbolSet[1].name === "SCISSORS") {
       console.log("Player Wins!");
-      localStorage.setItem("rpsScore", `${(parseInt(getScore) + 1)}`);
+      localStorage.setItem("rpsScore", `${parseInt(getScore) + 1}`);
       scoreAmount.innerText = `${incrementScore}`;
       winLossText.innerText = "You Win";
     } else if (symbolSet[1].name === "PAPER") {
