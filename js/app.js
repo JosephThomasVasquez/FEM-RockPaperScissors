@@ -57,7 +57,6 @@ const playAgainBtn = document.createElement("button");
 // Restart Option
 const restartOption = () => {
   winLossText.classList.add(`player-status`);
-  //winLossText.innerText = ``;
 
   pickerContainer.appendChild(restartContainer);
   restartContainer.appendChild(winLossText);
@@ -132,8 +131,10 @@ const createSymbol = (symbol) => {
     }
     symbolPick.classList.add("symbols-select");
 
-    symbolPick.style.transform = "scale(2)";
-    //symbolPick.classList.add("col-4");
+    let mediaSize = window.matchMedia("(max-width: 600px)").matches;
+
+    mediaSize ? symbolPick.style.transform = "scale(1)" : symbolPick.style.transform = "scale(2)";
+    
     pickerContainer.appendChild(playerPickText);
     pickerContainer.appendChild(cpuPickText);
   }
