@@ -45,4 +45,12 @@
         transform: scale(0.75);
     }
 
+    .rules-btn {
+        bottom: 150px;
+    }
+
+    .reset-score {
+        bottom: 90px;
+    }
+
 }
