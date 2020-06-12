@@ -12,7 +12,7 @@
 
     body {
         height: 100%;
-        overflow: auto;
+        overflow: hidden;
     }
 
     .container.main {
@@ -24,7 +24,7 @@
     }
 
     .picker-container {
-        height: 400px;
+        height: 40vh;
     }
 
     .title {
@@ -46,28 +46,6 @@
         transform: scale(1);
     }
 
-    .player-pick {
-        position: relative;
-        width: 200px;
-        top: -300px;
-        left: 40px;
-        color: white;
-        font-family: var(--fontFam);
-        font-size: 2rem;
-        text-align: center;
-    }
-    
-    .cpu-pick {
-        position: relative;
-        width: 200px;
-        top: -300px;
-        right: -330px;
-        color: white;
-        font-family: var(--fontFam);
-        font-size: 2rem;
-        text-align: center;
-    }
-
     .symbols-select {
         display: flex;
         width: 20%;
@@ -84,9 +62,10 @@
         display: block;
         z-index: 1;
         position: relative;
-        top: -150px;
-        width: 100%;
-        padding: 10%;
+        top: 20px;
+        width: 120px;
+        padding: 2% 5%;
+        margin: 0 auto;
         background-color: rgba(255, 255, 255, 1);
         color: hsl(217, 16%, 45%);
         font-family: var(--fontFam);
@@ -98,8 +77,9 @@
     
     .player-status {
         position: absolute;
-        top: 400px;
-        width: 30%;
+        top: 570px;
+        width: 100%;
+        left: 0px;
         margin: 0 auto;
         color: white;
         font-family: var(--fontFam);
@@ -108,10 +88,10 @@
     }
 
     .player-pick {
-        position: relative;
+        position: absolute;
         width: 200px;
-        top: -450px;
-        left: -40px;
+        top: 500px;
+        left: -15px;
         color: white;
         font-family: var(--fontFam);
         font-size: 1rem;
@@ -119,10 +99,10 @@
     }
     
     .cpu-pick {
-        position: relative;
+        position: absolute;
         width: 200px;
-        top: -530px;
-        right: -150px;
+        top: 500px;
+        right: -15px;
         color: white;
         font-family: var(--fontFam);
         font-size: 1rem;
