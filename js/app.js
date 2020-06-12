@@ -134,7 +134,7 @@ const createSymbol = (symbol) => {
     let mediaSize = window.matchMedia("(max-width: 600px)").matches;
 
     mediaSize ? symbolPick.style.transform = "scale(1)" : symbolPick.style.transform = "scale(2)";
-    
+
     pickerContainer.appendChild(playerPickText);
     pickerContainer.appendChild(cpuPickText);
   }
@@ -224,8 +224,6 @@ const cpu = () => {
 
   winConditions();
 };
-
-//cpu();
 
 // Check win conditions to see who wins
 const winConditions = () => {

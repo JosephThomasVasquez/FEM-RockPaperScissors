@@ -1,12 +1,18 @@
 @media screen and (max-width: 600px) {
 
     html {
-        height: 100vh;
+        height: 100%;
+        overflow: hidden;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
         background-repeat:no-repeat;
+    }
+
+    body {
+        height: 100%;
+        overflow: auto;
     }
 
     .container.main {
@@ -61,6 +67,68 @@
         font-size: 2rem;
         text-align: center;
     }
+
+    .symbols-select {
+        display: flex;
+        width: 20%;
+        padding: 5% 0;
+        align-items: center;
+        justify-content: center;
+        animation-name: appear;
+        animation-duration: 0.75s;
+        animation-timing-function: ease-out;
+        animation-iteration-count: 1;
+    }
+
+    .play-again {
+        display: block;
+        z-index: 1;
+        position: relative;
+        top: -150px;
+        width: 100%;
+        padding: 10%;
+        background-color: rgba(255, 255, 255, 1);
+        color: hsl(217, 16%, 45%);
+        font-family: var(--fontFam);
+        font-size: 1rem;
+        text-align: center;
+        border-radius: 10px;
+        border: solid 2px hsl(217, 16%, 45%);
+    }
+    
+    .player-status {
+        position: absolute;
+        top: 400px;
+        width: 30%;
+        margin: 0 auto;
+        color: white;
+        font-family: var(--fontFam);
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .player-pick {
+        position: relative;
+        width: 200px;
+        top: -450px;
+        left: -40px;
+        color: white;
+        font-family: var(--fontFam);
+        font-size: 1rem;
+        text-align: center;
+    }
+    
+    .cpu-pick {
+        position: relative;
+        width: 200px;
+        top: -530px;
+        right: -150px;
+        color: white;
+        font-family: var(--fontFam);
+        font-size: 1rem;
+        text-align: center;
+    }
+    
     
 
     .bg-image {
