@@ -227,6 +227,16 @@ const cpu = () => {
 
 // Check win conditions to see who wins
 const winConditions = () => {
+
+  const playerWinEffect = document.querySelector(`.pick-${symbolSet[0].name.toLowerCase()}`);
+  const cpuWinEffect = document.querySelector(`.pick-${symbolSet[1].name.toLowerCase()}`);
+  const winEffect = document.createElement('span');
+
+  console.log(playerWinEffect.parentElement);
+  winEffect.innerHTML = '<div classname="symbol-win"></div>';
+  playerWinEffect.lastChild.appendChild(winEffect);
+  
+  console.log(cpuWinEffect);
   // Check which symbol is the winner
   if (symbolSet[0].name === "PAPER") {
     if (symbolSet[1].name === "ROCK") {
@@ -240,7 +250,7 @@ const winConditions = () => {
     } else if (symbolSet[1].name === symbolSet[0].name) {
       winLossText.innerText = "Tie!";
     }
-  }
+  };
 
   if (symbolSet[0].name === "SCISSORS") {
     if (symbolSet[1].name === "ROCK") {
@@ -254,7 +264,7 @@ const winConditions = () => {
     } else if (symbolSet[1].name === symbolSet[0].name) {
       winLossText.innerText = "Tie!";
     }
-  }
+  };
 
   if (symbolSet[0].name === "ROCK") {
     if (symbolSet[1].name === "SCISSORS") {
@@ -268,7 +278,7 @@ const winConditions = () => {
     } else if (symbolSet[1].name === symbolSet[0].name) {
       winLossText.innerText = "Tie!";
     }
-  }
+  };
 };
 
 initGame();

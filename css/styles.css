@@ -100,7 +100,7 @@ body {
     display: block;
     float: left;
     position: relative;
-    top: -45000px;
+    top: -450px;
     width: 100%;
     margin: 80px auto;
     transform: scale(1.25);
@@ -121,6 +121,19 @@ body {
 .symbols-select > div {
     margin: 0;
     flex: 0 0 auto;
+}
+
+.symbol-win {
+    display: block;
+    position: relative;
+    background: white;
+    border: solid 10px white;
+    border-radius: 50%;
+    width: 500px;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: 5px 5px 10px white;
+    
 }
 
 .bg-image {
