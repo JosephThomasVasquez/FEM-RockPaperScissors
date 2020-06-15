@@ -19,6 +19,10 @@ let playerScore = 5;
 let getScore = localStorage.getItem("rpsScore");
 let incrementScore = parseInt(getScore) + 1;
 
+//console.log(getScore);
+
+
+
 // Create the main div container with the title and score
 const scoreAmount = document.createElement("h2");
 scoreAmount.classList.add("score-value");
@@ -142,6 +146,11 @@ const createSymbol = (symbol) => {
 
 // Initialize the game
 const initGame = () => {
+
+  if (getScore === 'NaN' || getScore === 'null') {
+    localStorage.setItem('rpsScore', '0');
+  };
+
   getScore;
   scoreAmount.innerText = `${getScore}`;
 
