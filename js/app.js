@@ -123,6 +123,7 @@ const createSymbol = (symbol) => {
         }
       }, 1000);
     });
+    
   } else if (playerSelect) {
     if (symbolPick.classList.contains("col-12")) {
       symbolPick.classList.remove("col-12");

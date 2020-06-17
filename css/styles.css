@@ -25,6 +25,11 @@ body {
 
 }
 
+.row {
+    margin: 0;
+    padding: 0;
+}
+
 /* Containers */
 
 .container.main {
