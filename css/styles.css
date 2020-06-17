@@ -87,6 +87,7 @@ body {
     position: relative;
     top: -450px;
     width: 100%;
+    z-index: 2;
     margin: 80px auto;
     transform: scale(1.25);
 }
@@ -97,6 +98,7 @@ body {
     position: relative;
     top: -450px;
     width: 100%;
+    z-index: 2;
     margin: 80px auto;
     transform: scale(1.25);
 }
@@ -107,6 +109,7 @@ body {
     position: relative;
     top: -450px;
     width: 100%;
+    z-index: 2;
     margin: 80px auto;
     transform: scale(1.25);
 }
@@ -130,14 +133,16 @@ body {
 
 .symbol-win {
     display: block;
-    position: relative;
+    position: absolute;
+    z-index: -1;
+    top: 78px;
+    left: 55px;
     background: white;
-    border: solid 10px white;
     border-radius: 50%;
-    width: 500px;
-    opacity: 1;
-    visibility: visible;
-    box-shadow: 5px 5px 10px white;
+    width: 120px;
+    height: 125px;
+    opacity: 0.5;
+    box-shadow: 0px 0px 40px rgba(255, 255, 255, 1);
     
 }
 
@@ -154,6 +159,7 @@ body {
 .paper-ring {
     width: 120px;
     height: 125px;
+    z-index: 1;
     background: linear-gradient(to bottom, hsl(230, 89%, 50%), hsl(230, 89%, 65%));
     border-radius: 50%;
     margin: 0 auto;
@@ -178,6 +184,7 @@ body {
 .scissors-ring {
     width: 120px;
     height: 125px;
+    z-index: 1;
     background: linear-gradient(to bottom, hsl(39, 100%, 37%), hsl(40, 84%, 53%));
     border-radius: 50%;
     margin: 0 auto;
@@ -202,6 +209,7 @@ body {
 .rock-ring {
     width: 120px;
     height: 125px;
+    z-index: 1;
     background: linear-gradient(to bottom, hsl(349, 71%, 40%), hsl(349, 70%, 56%));
     border-radius: 50%;
     margin: 0 auto;
@@ -226,6 +234,7 @@ body {
 .symbol-paper {
     width: 90px;
     height: 90px;
+    z-index: 1;
     display: block;
     background-color: white;
     border: solid 2px rgba(135, 153, 248, 0.75);
@@ -238,6 +247,7 @@ body {
 .symbol-scissors {
     width: 90px;
     height: 90px;
+    z-index: 1;
     display: block;
     background-color: white;
     border: solid 2px rgba(236, 169, 34, 0.75);
@@ -250,6 +260,7 @@ body {
 .symbol-rock {
     width: 90px;
     height: 90px;
+    z-index: 1;
     display: block;
     background-color: white;
     border: solid 2px rgba(221, 64, 93, 0.75);
@@ -300,7 +311,7 @@ body {
 
 .play-again {
     display: block;
-    z-index: 1;
+    z-index: 3;
     position: relative;
     top: -200px;
     width: 200px;

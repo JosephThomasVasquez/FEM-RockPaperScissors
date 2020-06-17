@@ -112,7 +112,8 @@
     
 
     .bg-image {
-        width: 100%;
+        width: 300px;
+        top: -115px;
         transform: scale(0.75);
     }
 

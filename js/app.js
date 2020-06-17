@@ -123,7 +123,7 @@ const createSymbol = (symbol) => {
         }
       }, 1000);
     });
-    
+
   } else if (playerSelect) {
     if (symbolPick.classList.contains("col-12")) {
       symbolPick.classList.remove("col-12");
@@ -239,7 +239,7 @@ const winConditions = () => {
   const winEffect = document.createElement('span');
 
   console.log(playerWinEffect.parentElement);
-  winEffect.innerHTML = '<div classname="symbol-win"></div>';
+  winEffect.innerHTML = '<div class="symbol-win"></div>';
   playerWinEffect.lastChild.appendChild(winEffect);
   
   console.log(cpuWinEffect);
