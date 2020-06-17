@@ -41,7 +41,7 @@
     }
 
     .pick-paper, .pick-scissors, .pick-rock {
-        top: -100%;
+        top: -50vh;
         margin: 10px auto;
         transform: scale(1);
     }
@@ -101,7 +101,7 @@
     .cpu-pick {
         position: absolute;
         width: 200px;
-        top: 500px;
+        top: 400px;
         right: -15px;
         color: white;
         font-family: var(--fontFam);
@@ -117,12 +117,12 @@
     }
 
     .rules-btn {
-        bottom: 65px;
+        bottom: 150px;
         transform: scale(0.75);
     }
 
     .reset-score {
-        bottom: 20px;
+        bottom: 100px;
         transform: scale(0.75);
     }
 

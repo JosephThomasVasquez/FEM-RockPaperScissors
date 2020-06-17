@@ -19,10 +19,6 @@ let playerScore = 5;
 let getScore = localStorage.getItem("rpsScore");
 let incrementScore = parseInt(getScore) + 1;
 
-//console.log(getScore);
-
-
-
 // Create the main div container with the title and score
 const scoreAmount = document.createElement("h2");
 scoreAmount.classList.add("score-value");
