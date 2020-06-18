@@ -58,6 +58,21 @@
         animation-iteration-count: 1;
     }
 
+    .symbol-win {
+        display: block;
+        position: absolute;
+        z-index: -1;
+        top: 89px;
+        left: -30px;
+        background: white;
+        border-radius: 50%;
+        width: 120px;
+        height: 125px;
+        opacity: 0.5;
+        box-shadow: 0px 0px 100px rgba(255, 255, 255, 1);
+        
+    }
+
     .play-again {
         display: block;
         z-index: 1;
@@ -108,8 +123,6 @@
         font-size: 1rem;
         text-align: center;
     }
-    
-    
 
     .bg-image {
         width: 300px;

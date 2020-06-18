@@ -225,8 +225,6 @@ const cpu = () => {
 
   createSymbol(symbols[rollSymbol]);
   symbolSet.push(symbols[rollSymbol]);
-  console.log(rollSymbol);
-  console.log(symbolSet);
 
   winConditions();
 };
@@ -238,20 +236,19 @@ const winConditions = () => {
   const cpuWinEffect = document.querySelector(`.pick-${symbolSet[1].name.toLowerCase()}`);
   const winEffect = document.createElement('span');
 
-  console.log(playerWinEffect.parentElement);
   winEffect.innerHTML = '<div class="symbol-win"></div>';
-  playerWinEffect.lastChild.appendChild(winEffect);
+  cpuWinEffect.appendChild(winEffect);
   
   console.log(cpuWinEffect);
   // Check which symbol is the winner
   if (symbolSet[0].name === "PAPER") {
     if (symbolSet[1].name === "ROCK") {
-      console.log("Player Wins!");
+      playerWinEffect.appendChild(winEffect);
       localStorage.setItem("rpsScore", `${parseInt(getScore) + 1}`);
       scoreAmount.innerText = `${incrementScore}`;
       winLossText.innerText = "You Win";
     } else if (symbolSet[1].name === "SCISSORS") {
-      console.log("CPU Wins!");
+      cpuWinEffect.appendChild(winEffect);
       winLossText.innerText = "You Lose";
     } else if (symbolSet[1].name === symbolSet[0].name) {
       winLossText.innerText = "Tie!";
@@ -260,10 +257,10 @@ const winConditions = () => {
 
   if (symbolSet[0].name === "SCISSORS") {
     if (symbolSet[1].name === "ROCK") {
-      console.log("CPU Wins!");
+      cpuWinEffect.appendChild(winEffect);
       winLossText.innerText = "You Lose";
     } else if (symbolSet[1].name === "PAPER") {
-      console.log("Player Wins!");
+      playerWinEffect.appendChild(winEffect);
       localStorage.setItem("rpsScore", `${parseInt(getScore) + 1}`);
       scoreAmount.innerText = `${incrementScore}`;
       winLossText.innerText = "You Win";
@@ -274,12 +271,12 @@ const winConditions = () => {
 
   if (symbolSet[0].name === "ROCK") {
     if (symbolSet[1].name === "SCISSORS") {
-      console.log("Player Wins!");
+      playerWinEffect.appendChild(winEffect);
       localStorage.setItem("rpsScore", `${parseInt(getScore) + 1}`);
       scoreAmount.innerText = `${incrementScore}`;
       winLossText.innerText = "You Win";
     } else if (symbolSet[1].name === "PAPER") {
-      console.log("CPU Wins!");
+      cpuWinEffect.appendChild(winEffect);
       winLossText.innerText = "You Lose";
     } else if (symbolSet[1].name === symbolSet[0].name) {
       winLossText.innerText = "Tie!";
