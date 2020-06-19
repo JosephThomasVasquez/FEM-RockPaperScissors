@@ -1,3 +1,15 @@
+# My attempt at the Rock Paper Scissors Challenge from Frontend Mentor
+
+This was a fun challenge which I was able to learn and find a way to make this game run mostly using javascript. I originally started out with all html and css to get the overall look and palcement of all the elements then switched to have everything generated from javascript as I originally planned to have everything generated from javascript, but then found some things would end up being made best like the modal with html and manipulated  through css and javascript.
+
+I modified the visuals using css to something I thought was a bit more appealing and cooler looking but still kept the feel of the overall style.
+
+## How the game / code works:
+
+
+
+Actual details of this challenge provided by FrontEnd Mentor are below.
+
 # Frontend Mentor - Rock, Paper, Scissors
 
 ![Design preview for the Rock, Paper, Scissors coding challenge](./design/desktop-preview.jpg)
