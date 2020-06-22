@@ -4,6 +4,13 @@ This was a fun challenge which I was able to learn and find a way to make this g
 
 I modified the visuals using css to something I thought was a bit more appealing and cooler looking but still kept the feel of the overall style.
 
+## Features
+
+* Slight visual css animations
+* Saves users score to localstorage upon winning a hand
+* Added reset score button
+* Responsive for Mobile and Desktop
+
 ## How the game / code works:
 
 
